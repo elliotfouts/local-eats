@@ -4,11 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="reset.css">
+    <script src="https://kit.fontawesome.com/314044026f.js" crossorigin="anonymous"></script>
     <title>Document</title>
+
+    <style>
+        /* .result {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: 20vh;
+        }
+
+        .result h2 {
+            font-size: 3rem;
+        } */
+    </style>
 </head>
 <body>
 
-    <h1>Food</h1>
+    <div class="container">
+        <div class="left-container">
+            <div class="search-container">
+
+                <div class="searchbar">
+                    <input type="text" class="search-input">
+                    <i class="fas fa-search"></i>
+                </div>
+
+            </div>
+            <div class="cuisine-container">
+                <h2 class="left-container-title">Cuisine</h2>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                        <h3 class="cuisine-option">American</h3>
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                        <h3 class="cuisine-option">Chinese</h3>
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                        <h3 class="cuisine-option">Mexican</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                        <h3 class="cuisine-option">Italian</h3>
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                        <h3 class="cuisine-option">Japanese</h3>
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                        <h3 class="cuisine-option">Dessert</h3>
+                    </td>
+                </tr>
+            </div>
+            <div class="foodie-container">
+                <h2 class="left-container-title">Foodie Level</h2>
+                <input type="rage" min="1" max="10" value="5" class="left-container-slider">
+            </div>
+            <div class="foodie-container">
+                <h2 class="left-container-title">Foodie Level</h2>
+                <input type="range" min="1" max="10" value="5" class="left-container-slider">
+            </div>
+            <div class="price-range-container"></div>
+                <h2 class="left-container-title">Price Range</h2>
+                <input type="range" min="10" max="100" value="25" class="left-container-slider">
+            <div class="open-now-container">
+                <input type="checkbox">
+                <h2 class="left-container-title">Open Now</h2>
+            </div>
+            <div class="online-delivery-container">
+                <input type="checkbox">
+                <h2 class="left-container-title">Online Delivery Available</h2>
+            </div>
+        </div>
+
+
+
+        <div class="right-container">
+            <div class="title">LOCAL EATS</div>
+            <div class="results-container">
+                <div class="result">
+                    <h2 class="result-name">Restaurant Name</h2>
+                    <h3 class="result-type">Food Type</h3>
+                    <h3 class="result-price">$$$</h3>
+                </div>
+                <div class="result">
+                    <h2 class="result-name">Restaurant Name</h2>
+                    <h3 class="result-type">Food Type</h3>
+                    <h3 class="result-price">$$$</h3>
+                </div>
+                <div class="result">
+                    <h2 class="result-name">Restaurant Name</h2>
+                    <h3 class="result-type">Food Type</h3>
+                    <h3 class="result-price">$$$</h3>
+                </div>
+                <div class="result">
+                    <h2 class="result-name">Restaurant Name</h2>
+                    <h3 class="result-type">Food Type</h3>
+                    <h3 class="result-price">$$$</h3>
+                </div>
+                <div class="result">
+                    <h2 class="result-name">Restaurant Name</h2>
+                    <h3 class="result-type">Food Type</h3>
+                    <h3 class="result-price">$$$</h3>
+                </div>
+                <div class="result">
+                    <h2 class="result-name">Restaurant Name</h2>
+                    <h3 class="result-type">Food Type</h3>
+                    <h3 class="result-price">$$$</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
