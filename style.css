@@ -11,3 +11,15 @@
     flex-direction: row; 
     flex-wrap: wrap;
 }
+
+.cuisine-container{
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* .cuisine-container2{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+} */
