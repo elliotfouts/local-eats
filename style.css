@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex: 1;
+}
+
+.left-container { 
+    min-width: 40%;
+}
+
+.right-container {
+    flex-direction: row; 
+    flex-wrap: wrap;
+}
