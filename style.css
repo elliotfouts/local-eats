@@ -142,4 +142,32 @@ a {
 .right-container {
     min-width: 65%;
     height: 100vh;
+    background-image: url(restuarant.jpeg);
+    background-size: cover;
+    opacity: 0.80;
+}
+
+/*==================  title  ==================*/
+
+.title {
+    background-color: rgba(0, 0, 0, 0.6);;
+}
+
+.title-label {
+    color: #F26B6B;
+    font-family: Rhodium Libre;
+    font-size: 50px;
+    text-align: right;
+}
+
+/*==================  results  ==================*/
+
+.result {
+    background-color: #eee;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    margin: 15px;
 }
