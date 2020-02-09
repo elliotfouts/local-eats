@@ -227,7 +227,12 @@ a {
 
 .title-label {
     color: #F26B6B;
+<<<<<<< HEAD
     font-size: 50px;
+=======
+    font-family: Rhodium Libre;
+    font-size: 75px;
+>>>>>>> 6b93b881230ccf0759895073e0a2b1066e53f73f
     text-align: right;
     position: relative;
 }
@@ -250,6 +255,7 @@ a {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+<<<<<<< HEAD
     padding: 1.5rem;
     margin: 1.2rem;
     transition: 300ms all;
@@ -263,4 +269,25 @@ a {
 .result-name {
     color: #F26B6B;
     font-size: 2rem;
+=======
+    height: 80px;
+    margin: 20px;
+    font-weight: bold;
+}
+
+.result:hover{
+    background-color: #F29B34;
+}
+
+.result-name {
+    font-size: 30px;
+}
+
+.result-type {
+    font-size: 20px;
+}
+
+.result-price {
+    font-size: 20px;
+>>>>>>> 6b93b881230ccf0759895073e0a2b1066e53f73f
 }
