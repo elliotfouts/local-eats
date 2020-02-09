@@ -35,17 +35,23 @@ a {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
 }
 
 /*==================  searchbar  ==================*/
 
+.search-container {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /*==================  cuisine  ==================*/
 
 .cuisine-container{
     display: flex;
     flex-direction: column;
+    height: 20%;
 }
 
 .cuisine-container ul {
@@ -58,9 +64,21 @@ a {
 
 /*==================  foodie level  ==================*/
 
+.foodie-container {
+    height: 20%;
+}
+
 /*==================  price range  ==================*/
 
+.price-range-container {
+    height: 20%;
+}
+
 /*==================  toggles  ==================*/
+
+.toggle-container {
+    height: 20%;
+}
 
 .open-now-container, 
 .online-delivery-container {
