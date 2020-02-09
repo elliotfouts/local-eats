@@ -35,6 +35,8 @@ a {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-left: 3rem;
+    padding-top: 3rem;
 }
 
 
@@ -43,8 +45,8 @@ a {
 .search-container {
     height: 20%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .searchbar {
