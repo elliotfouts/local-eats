@@ -4,8 +4,14 @@
 *            global elements            *
 =======================================*/
 
-* {
+*,
+*::before, 
+*::after {
     box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
 }
 
 body {
@@ -14,7 +20,7 @@ body {
     overflow: hidden;
     font-family: 'Playfair Display', serif;
     background: #eee;
-    color: #444;
+    color: #71949F;
 }
 
 a {
@@ -39,6 +45,11 @@ a {
     padding-top: 3rem;
 }
 
+.left-container-title {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #F26B6B;
+}
 
 /*==================  searchbar  ==================*/
 
@@ -54,7 +65,7 @@ a {
     justify-content: center;
     align-items: center;
     transition: 500ms all;
-    border: 1px solid currentColor;
+    border: 1px solid #F26B6B;
     /* border-radius: 2rem; */
 }
 
@@ -95,7 +106,7 @@ a {
 }
 
 .fa-search:hover {
-    color: #444;
+    color: #71949F;
 }
 
 /*==================  cuisine  ==================*/
@@ -106,13 +117,38 @@ a {
     height: 20%;
 }
 
-.cuisine-container ul {
-    display: flex;
+.cuisine-option-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
 }
 
-.cuisine-container li {
+.cuisine-option-container > div  {
     display: flex;
+    align-items: center;
 }
+
+.cuisine-container .radio-button {
+    -webkit-appearance: none;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    border: 1px #71949F solid;
+    border-radius: 50%;
+    transition: all 200ms;
+    margin-right: .5rem;
+}
+
+.cuisine-option-container > div:hover .radio-button{
+    outline: none;
+    transform: scale(1.2)
+}
+
+.cuisine-container .radio-button:checked {
+    background: #71949F;
+} 
+
+
 
 /*==================  foodie level  ==================*/
 
@@ -120,6 +156,21 @@ a {
     height: 20%;
 }
 
+.left-container-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #71949F;
+}
+
+.left-container-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #F26B6B;
+    border-radius: 50%;
+}
 /*==================  price range  ==================*/
 
 .price-range-container {
@@ -144,4 +195,32 @@ a {
 .right-container {
     min-width: 65%;
     height: 100vh;
+    background-image: url(restuarant.jpeg);
+    background-size: cover;
+    opacity: 0.80;
+}
+
+/*==================  title  ==================*/
+
+.title {
+    background-color: rgba(0, 0, 0, 0.6);;
+}
+
+.title-label {
+    color: #F26B6B;
+    font-family: Rhodium Libre;
+    font-size: 50px;
+    text-align: right;
+}
+
+/*==================  results  ==================*/
+
+.result {
+    background-color: #eee;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    margin: 15px;
 }
