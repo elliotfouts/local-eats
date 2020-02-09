@@ -227,12 +227,8 @@ a {
 
 .title-label {
     color: #F26B6B;
-<<<<<<< HEAD
-    font-size: 50px;
-=======
     font-family: Rhodium Libre;
-    font-size: 75px;
->>>>>>> 6b93b881230ccf0759895073e0a2b1066e53f73f
+    font-size: 5rem;
     text-align: right;
     position: relative;
 }
@@ -255,33 +251,30 @@ a {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-<<<<<<< HEAD
     padding: 1.5rem;
     margin: 1.2rem;
-    transition: 300ms all;
-}
-
-.result:hover {
-    cursor: pointer;
-    transform: scale(1.02);
-}
-
-.result-name {
-    color: #F26B6B;
-    font-size: 2rem;
-=======
-    height: 80px;
-    margin: 20px;
     font-weight: bold;
+    transition: all 500ms;
 }
 
 .result:hover{
-    background-color: #F29B34;
+    transform: scale(1.02);
+    cursor: pointer;
+    color: #eee;
+    background: #F29B34;
 }
 
 .result-name {
-    font-size: 30px;
+    font-size: 2rem;
+    color: #F26B6B;
+    position: relative;
+    transition: all 500ms;
 }
+
+.result:hover .result-name{
+    color: #eee;
+}
+
 
 .result-type {
     font-size: 20px;
@@ -289,5 +282,4 @@ a {
 
 .result-price {
     font-size: 20px;
->>>>>>> 6b93b881230ccf0759895073e0a2b1066e53f73f
 }
