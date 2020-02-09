@@ -41,8 +41,7 @@ a {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-left: 3rem;
-    padding-top: 3rem;
+    padding: 3rem;
 }
 
 .left-container-title {
@@ -55,6 +54,7 @@ a {
 
 .search-container {
     height: 20%;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -154,6 +154,7 @@ a {
 
 .foodie-container {
     height: 20%;
+    width: 100%;
 }
 
 .left-container-slider {
@@ -197,20 +198,48 @@ a {
     height: 100vh;
     background-image: url(restuarant.jpeg);
     background-size: cover;
-    opacity: 0.80;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}   
+
+.right-container-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 0;
 }
 
 /*==================  title  ==================*/
+.title, 
+.results-container {
+    position: relative;
+    z-index: 1;
+}
 
 .title {
-    background-color: rgba(0, 0, 0, 0.6);;
+    padding: 2rem;
 }
 
 .title-label {
     color: #F26B6B;
-    font-family: Rhodium Libre;
     font-size: 50px;
     text-align: right;
+    position: relative;
+}
+
+.title-label::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -2rem;
+    height: 100%;
+    width: 1rem;
+    background: #F26B6B;
 }
 
 /*==================  results  ==================*/
@@ -219,8 +248,19 @@ a {
     background-color: #eee;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    height: 80px;
-    margin: 15px;
+    padding: 1.5rem;
+    margin: 1.2rem;
+    transition: 300ms all;
+}
+
+.result:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.result-name {
+    color: #F26B6B;
+    font-size: 2rem;
 }
