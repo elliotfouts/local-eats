@@ -1,25 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+
+/*=======================================
+*            global elements            *
+=======================================*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Playfair Display', serif;
+    background: #eee;
+    color: #444;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
 .container {
     display: flex;
-    flex: 1;
 }
+
+/*======================================
+*            left container            *
+======================================*/
 
 .left-container { 
-    min-width: 40%;
+    min-width: 35%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.right-container {
-    flex-direction: row; 
-    flex-wrap: wrap;
+
+/*==================  searchbar  ==================*/
+
+.search-container {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 500ms all;
+    border: 1px solid currentColor;
+    /* border-radius: 2rem; */
+}
+
+.searchbar:hover {
+    cursor: pointer;
+}
+
+
+.search-input {
+    font-size: 1.5rem;
+    border: none;
+    background: transparent;
+    transition: all 500ms ease-in-out;
+    padding: 0 20px;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+
+.search-input:focus {
+    outline: none;
+}
+
+.fa-search {
+    margin: 0;
+    height: 60px;
+    width: 60px;
+    color: #eee;
+    background: #F26B6B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border-radius: 50%; */
+    float: right;
+    transition: all 300ms;
+}
+
+.fa-search:hover {
+    color: #444;
+}
+
+/*==================  cuisine  ==================*/
 
 .cuisine-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    height: 20%;
 }
 
-
-/* .cuisine-container2{
+.cuisine-container ul {
     display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-} */
+}
+
+.cuisine-container li {
+    display: flex;
+}
+
+/*==================  foodie level  ==================*/
+
+.foodie-container {
+    height: 20%;
+}
+
+/*==================  price range  ==================*/
+
+.price-range-container {
+    height: 20%;
+}
+
+/*==================  toggles  ==================*/
+
+.toggle-container {
+    height: 20%;
+}
+
+.open-now-container, 
+.online-delivery-container {
+    display: flex;
+}
+
+/*=======================================
+*            right container            *
+=======================================*/
+
+.right-container {
+    min-width: 65%;
+    height: 100vh;
+}
