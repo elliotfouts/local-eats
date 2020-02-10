@@ -26,11 +26,9 @@ a {
   color: currentColor;
 }
 
-
 .content-container {
   display: flex;
 }
-
 
 /*======================================
 *            top container            *
@@ -39,7 +37,12 @@ a {
   width: 100%;
 }
 
+.title-container {
+    display: flex;
+}
+
 /*==================  title  ==================*/
+
 .title,
 .results-container {
   position: relative;
@@ -47,7 +50,10 @@ a {
 }
 
 .title {
-  padding: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 65%;
+    padding: 2rem;
 }
 
 .title-label {
@@ -73,7 +79,7 @@ Search Bar
 
 .title-searchbar {
   height: 50%;
-  width: 1000%;
+  width: 35%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -130,20 +136,14 @@ Search Bar
 *      left container results           *
 ======================================*/
 
-/* .content-container-left {
-    min-width: 35%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-} */
+.content-container-right {
+    width: 50%;
+}
 
 /*=======================================
 *     right container  results          *
 =======================================*/
 
-/* .content-container-right {
-    min-width: 65%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column-reverse;
-} */
+.content-container-right {
+    width: 50%;
+}
