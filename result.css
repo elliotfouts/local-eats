@@ -26,17 +26,52 @@ a {
   color: currentColor;
 }
 
-.container {
+.content-container {
   display: flex;
 }
 
+/*======================================
+*            top container            *
+======================================*/
+.container {
+  width: 100%;
+}
+
+/*==================  title  ==================*/
+.title,
+.results-container {
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  padding: 2rem;
+}
+
+.title-label {
+  color: #f26b6b;
+  font-family: Rhodium Libre;
+  font-size: 5rem;
+  text-align: right;
+  position: relative;
+}
+
+.title-label::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -2rem;
+  height: 100%;
+  width: 1rem;
+  background: #f26b6b;
+}
 /*======================================*      
 Search Bar          
 *======================================*/
 
 .title-searchbar {
-  height: 20%;
-  width: 100%;
+  height: 50%;
+  width: 1000%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;

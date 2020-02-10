@@ -28,6 +28,10 @@ a {
   color: currentColor;
 }
 
+.container {
+  display: flex;
+}
+
 /*======================================
 *            left container            *
 ======================================*/
