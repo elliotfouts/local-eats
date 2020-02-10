@@ -1,3 +1,26 @@
+
+/* ======================================
+*      left container results           *
+======================================*/
+
+/* .content-container-left {
+    min-width: 35%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+} */
+
+/*=======================================
+*     right container  results          *
+=======================================*/
+
+/* .content-container-right {
+    min-width: 65%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column-reverse;
+} */
+=======
 /*=======================================
 *            global elements            *
 =======================================*/
@@ -88,3 +111,4 @@ Search Bar
 .fa-search:hover {
   color: #71949f;
 }
+
