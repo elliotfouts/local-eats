@@ -92,6 +92,7 @@ a {
   align-items: center;
   transition: 500ms all;
   border: 1px solid #f26b6b;
+  padding-top: 30px;
   /* border-radius: 2rem; */
 }
 
