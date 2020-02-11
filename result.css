@@ -38,7 +38,7 @@ a {
 }
 
 .title-container {
-    display: flex;
+  display: flex;
 }
 
 /*==================  title  ==================*/
@@ -50,13 +50,10 @@ a {
 }
 
 .title {
-    display: flex;
-    justify-content: flex-end;
-    width: 65%;
-    padding: 2rem;
-}
-
-.title-label {
+  display: flex;
+  justify-content: flex-end;
+  width: 65%;
+  padding: 2rem;
   color: #f26b6b;
   font-family: Rhodium Libre;
   font-size: 5rem;
@@ -64,28 +61,19 @@ a {
   position: relative;
 }
 
-.title-label::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -2rem;
-  height: 100%;
-  width: 1rem;
-  background: #f26b6b;
-}
 /*======================================*      
 Search Bar          
 *======================================*/
 
 .title-searchbar {
-  height: 50%;
-  width: 35%;
+  height: 20%;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
-.title-searchbar-input {
+.searchbar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,7 +82,7 @@ Search Bar
   /* border-radius: 2rem; */
 }
 
-.searchbar:hover {
+.title-searchbar-input:hover {
   cursor: pointer;
 }
 
@@ -110,7 +98,7 @@ Search Bar
   color: #999;
 }
 
-.search-input:focus {
+.search-input::placeholder {
   outline: none;
 }
 
@@ -137,7 +125,7 @@ Search Bar
 ======================================*/
 
 .content-container-right {
-    width: 50%;
+  width: 50%;
 }
 
 /*=======================================
@@ -145,5 +133,5 @@ Search Bar
 =======================================*/
 
 .content-container-right {
-    width: 50%;
+  width: 50%;
 }
