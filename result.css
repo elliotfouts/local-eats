@@ -43,6 +43,7 @@ a {
   display: flex;
 }
 
+
 /*==================  title  ==================*/
 
 .title {
@@ -138,7 +139,7 @@ a {
 ======================================*/
 
 .content-container-left {
-  min-width: 35%;
+  min-width: 45%;
   height: 50vh;
   display: flex;
   flex-direction: column;
@@ -162,16 +163,52 @@ a {
   font-family: Rhodium Libre;
 }
 
+/*==================  content-preview  ==================*/
+
+#content-preview-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.content-preview {
+    border: solid;
+    border-width: 2px;
+    border-color: #f26b6b;
+    border-radius: 50%;
+    height: 75px;
+    vertical-align: top;
+    padding: 10px;
+    margin: 10px;
+}
+
+.content-preview:hover {
+    transform: scale(2.02);
+    cursor: pointer;
+    color: #eee;
+    background: #f29b34;
+}
+
 /*=======================================
 *     right container            *
 =======================================*/
 
 .content-container-right {
-  min-width: 35%;
+  min-width: 55%;
   height: 50vh;
   display: flex;
   flex-direction: column;
   padding: 2rem;
   position: relative;
   text-align: right;
+}
+
+/*==================  foodie-level ==================*/
+
+#content-rating-title {
+    font-size: 36px;
+}
+
+.fa-star {
+    height: 100px;
+    color: #f29b34;
 }
