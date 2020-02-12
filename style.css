@@ -15,7 +15,7 @@
 }
 
 body {
-  height: 100vh;
+  max-height: 100vh;
   width: 100%;
   overflow: hidden;
   font-family: "Playfair Display", serif;
@@ -156,8 +156,10 @@ a {
 .left-container-slider {
   -webkit-appearance: none;
   width: 100%;
-  height: 10px;
-  background: #71949f;
+  height: 1px;
+  /* background: #71949f; */
+  background: transparent;
+  border: 1px #71949f solid;
 }
 
 .left-container-slider::-webkit-slider-thumb {
@@ -165,7 +167,7 @@ a {
   appearance: none;
   width: 20px;
   height: 20px;
-  background-color: #f26b6b;
+  background-color: #71949f;
   border-radius: 50%;
 }
 /*==================  price range  ==================*/
@@ -191,7 +193,7 @@ a {
 
 .right-container {
   min-width: 65%;
-  height: 100vh;
+  min-height: 100%;
   background-image: url(restuarant.jpeg);
   background-size: cover;
   display: flex;
@@ -240,6 +242,13 @@ a {
 }
 
 /*==================  results  ==================*/
+.results-container {
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 
 .result {
   background-color: #eee;
@@ -247,8 +256,8 @@ a {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
-  margin: 1rem;
+  padding: 1rem;
+  margin-top: 1rem;
   font-weight: bold;
   transition: all 500ms;
 }
@@ -272,9 +281,9 @@ a {
 }
 
 .result-type {
-  font-size: 20px;
+  font-size: 1.2rem;
 }
 
 .result-price {
-  font-size: 20px;
+  font-size: 1.2rem;
 }
