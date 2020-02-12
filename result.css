@@ -189,7 +189,11 @@ header {
     border-color: #f26b6b;
     border-radius: 50%;
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 75px;
+=======
+    height: 90px;
+>>>>>>> d0a40441997b12041e803bea351de0a314b3d8ca
 =======
     height: 90px;
 >>>>>>> d0a40441997b12041e803bea351de0a314b3d8ca
@@ -200,7 +204,11 @@ header {
 
 .content-preview:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
     transform: scale(2.02);
+=======
+    transform: scale(1.5);
+>>>>>>> d0a40441997b12041e803bea351de0a314b3d8ca
 =======
     transform: scale(1.5);
 >>>>>>> d0a40441997b12041e803bea351de0a314b3d8ca
