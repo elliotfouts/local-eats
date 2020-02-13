@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+/*=========================================
+*            global attributes            *
+=========================================*/
+
+*,
+*::after, 
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    background: #444;
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+    color: #dfdfdf;
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+/*========================================
+*            background video            *
+========================================*/
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.background-video video {
+    max-width: 100%;
+    min-height: 100%;
+}
+
+
+/*=================================
+*            container            *
+=================================*/
+
+.container {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.45);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.title {
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-weight: 1000;
+    letter-spacing: .2rem;
+    color: #a87932;
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    align-self: center;
+    font-size: 2.5rem;
+    color: #999999;
+}
+
+/*==================  searchbar  ==================*/
+
+.searchbar {
+    margin: 3rem;
+    display: flex;
+    align-self: flex-end;
+    border-bottom: 1px #b1b1b1 solid;
+    padding: .75rem 0;
+    /* border-radius: 2rem; */
+}
+
+.searchbar-input {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    color: #b1b1b1;
+}
+
+.searchbar-input:focus {
+    outline: none;
+}
+
+.fa-search {
+    transition: all 400ms;
+    font-size: 1.5rem;
+}
+
+.fa-search:hover {
+    color: #686767;
+    cursor: pointer;
+}
