@@ -8,8 +8,8 @@ function collectingCityID (city){
         method: "GET"
       }).then(function(response){
 
-        console.log(response)
-        var cityIDVal = response.location_suggestions[0].entity_id
+        // console.log(response)
+        var cityIDVal = response.location_suggestions
         console.log(cityIDVal)
         // (/cities) response.location_suggestions[array with different stuff inside relating to the city (can have multiple searches, would need to edit url)].entity_id
         // The entity_id we collect in this call will need to be used to make a different ajax call that will provide us with restaurant info  
@@ -20,7 +20,7 @@ function collectingCityID (city){
 }
 
 function collectingEstablishmentID (cityIDVal){
-    var queryURLestablishments = "https://developers.zomato.com/api/v2.1/location_details?entity_id="+cityIDVal+"&entity_type=city"
+    var queryURLestablishments = "https://developers.zomato.com/api/v2.1/search?entity_id="+cityIDVal+"&count=100"
 
     $.ajax({
         url: queryURLestablishments,
@@ -36,20 +36,12 @@ function collectingEstablishmentID (cityIDVal){
 
 }
 
-// GOOGLE MAPS - FOR LATER USE 
-// var map 
 
-// function initMap(){
-//     map = new google.maps.Map($(".content-map"), {
-//         center:{lat: -34.397 , lng: 150.644},
-//         zoom:8
-//     });
-// }
 
-$(".btn").on("click", function(event){
+$(".fa-search").on("click", function(event){
     event.preventDefault();
     
-    var city = $(".search-input").val();
+    var city = $(".searchbar-input").val();
 
     collectingCityID(city)
 })
