@@ -29,6 +29,8 @@ function collectingEstablishmentID (cityIDVal){
       }).then(function(response){
 
         console.log(response)
+
+        var foodType = response;
         // this provides us with items such as the following: popularity, night life index, nearby rest., top cuisine, best rated restaurant array[10 choices], can also get lat and lon for top 10 rest. which we will need for google maps api 
       })
 
