@@ -213,3 +213,10 @@ header {
     height: 100px;
     color: #f29b34;
 }
+
+/*==================  Map ==================*/
+
+.content-map {
+  height: 100px;
+  width: 100px;
+}
