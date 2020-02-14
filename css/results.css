@@ -93,7 +93,7 @@ header {
 .img-banner {
     height: 10vh;
     width: 100%;
-    background: url('imgs/banner-img.jpg');
+    background: url('../imgs/restuarant.jpeg');
     background-size: cover;
     background-position: 50% 55%;
 }
@@ -157,7 +157,7 @@ header {
 menu {
     top: 0;
     left: 100%;
-    width: 50%;
+    width: 30%;
     height: 100%;
     z-index: 2;
     position: fixed;
@@ -168,7 +168,7 @@ menu {
 }
 
 menu.open {
-    left: 50%;
+    left: 70%;
     transition: all 600ms;
 }
 
@@ -284,4 +284,6 @@ menu.open {
   .save-button:hover {
       color: #a87932;
   }
+
+
 

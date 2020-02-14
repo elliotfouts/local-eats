@@ -37,9 +37,8 @@ a {
     z-index: 0;
 }
 
-.background-video video {
-    max-width: 100%;
-    min-height: 100%;
+.video {
+
 }
 
 
@@ -110,4 +109,25 @@ header {
 .fa-search:hover {
     color: #686767;
     cursor: pointer;
+}
+
+
+
+@media screen and (min-width: 1370px) {
+
+
+    .video {
+        max-width: 100%;
+        min-height: 100%;
+    } 
+
+}
+
+@media screen and (max-width: 1370px) {
+
+    .video {
+        min-width: 100%;
+        max-height: 100%;
+    } 
+
 }
