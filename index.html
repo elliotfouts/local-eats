@@ -1,151 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="reset.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="css/reset.css">
     <script
-      src="https://kit.fontawesome.com/314044026f.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Welcome | Local Eats</title>
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
-
-    <style>
-      /* .result {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            height: 20vh;
-        }
-
-        .result h2 {
-            font-size: 3rem;
-        } */
-    </style>
-  </head>
-  <body>
+    src="https://kit.fontawesome.com/314044026f.js"
+    crossorigin="anonymous"
+  ></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Local Eats</title>
+</head>
+<body>
+    <div class="background-video">
+        <video src="video.mp4" class="video" autoplay loop muted></video>
+    </div>    
     <div class="container">
-
-      
-      <div class="left-container">
-        <div class="search-container">
-          <div class="searchbar">
-            <input
-              type="text"
-              class="search-input"
-              placeholder="City Name..."
-            />
-            <button class="btn"><i class="fas fa-search fa-2x"></i></button>
-          </div>
+        <header>
+            <h1 class="title">Local Eats</h1>
+            <h2 class="subtitle">where the locals eat</h2>
+        </header>
+        <div class="searchbar">
+            <input type="text" class="searchbar-input" placeholder="City Name...">
+            <i class="fas fa-search fa"></i>
         </div>
-        <div class="cuisine-container">
-          <h2 class="left-container-title">Cuisine</h2>
-          <div class="cuisine-option-container">
-            <div>
-              <input class="radio-button" type="checkbox" />
-              <h3 class="cuisine-option">American</h3>
-            </div>
-            <div>
-              <input class="radio-button" type="checkbox" />
-              <h3 class="cuisine-option">Chinese</h3>
-            </div>
-            <div>
-              <input class="radio-button" type="checkbox" />
-              <h3 class="cuisine-option">Mexican</h3>
-            </div>
-            <div>
-              <input class="radio-button" type="checkbox" />
-              <h3 class="cuisine-option">Italian</h3>
-            </div>
-            <div>
-              <input class="radio-button" type="checkbox" />
-              <h3 class="cuisine-option">Japanese</h3>
-            </div>
-            <div>
-              <input class="radio-button" type="checkbox" />
-              <h3 class="cuisine-option">Dessert</h3>
-            </div>
-          </div>
-        </div>
-        <div class="foodie-container">
-          <h2 class="left-container-title">Foodie Level</h2>
-          <input
-            type="range"
-            min="1"
-            max="100"
-            value="10"
-            class="left-container-slider"
-          />
-        </div>
-        <div class="price-range-container">
-          <h2 class="left-container-title">Price Range</h2>
-          <input
-            type="range"
-            min="1"
-            max="100"
-            value="10"
-            class="left-container-slider"
-          />
-        </div>
-        <div class="toggle-container">
-          <div class="open-now-container">
-            <input type="checkbox" />
-            <h2 class="left-container-title">Open Now</h2>
-          </div>
-          <div class="online-delivery-container">
-            <input type="checkbox" />
-            <h2 class="left-container-title">Online Delivery Available</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="right-container">
-        <div class="right-container-overlay"></div>
-        <div class="title">
-          <h1 class="title-label">LOCAL EATS</h1>
-        </div>
-        <div class="results-container">
-          <div class="result">
-            <h2 class="result-name">Restaurant Name</h2>
-            <h3 class="result-type">Food Type</h3>
-            <h3 class="result-price">$$$</h3>
-          </div>
-          <div class="result">
-            <h2 class="result-name">Restaurant Name</h2>
-            <h3 class="result-type">Food Type</h3>
-            <h3 class="result-price">$$$</h3>
-          </div>
-          <div class="result">
-            <h2 class="result-name">Restaurant Name</h2>
-            <h3 class="result-type">Food Type</h3>
-            <h3 class="result-price">$$$</h3>
-          </div>
-          <div class="result">
-            <h2 class="result-name">Restaurant Name</h2>
-            <h3 class="result-type">Food Type</h3>
-            <h3 class="result-price">$$$</h3>
-          </div>
-          <div class="result">
-            <h2 class="result-name">Restaurant Name</h2>
-            <h3 class="result-type">Food Type</h3>
-            <h3 class="result-price">$$$</h3>
-          </div>
-          <div class="result">
-            <h2 class="result-name">Restaurant Name</h2>
-            <h3 class="result-type">Food Type</h3>
-            <h3 class="result-price">$$$</h3>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <script src="script.js"></script>
-  </body>
+    
+</body>
 </html>
