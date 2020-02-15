@@ -1,3 +1,5 @@
+
+
 function collectingCityID (city){
 
     var queryURL = "https://developers.zomato.com/api/v2.1/locations?query="+city
@@ -99,16 +101,27 @@ function collectingEstablishmentID (entityID){
 // }
 
 
+// adds functionality to search buttons
 
-$(".fa-search").on("click", function(event){
-    event.preventDefault();
-    
-    var city = $(".searchbar-input").val();
-
-    $(".result-city-name").text(city)
-
-    collectingCityID(city)
-})
+$(".home-search-button").on("click", function() {
+  location.replace("results.html");
+  getSearchValue();
+});
 
 
+$(".result-search-button").click(function(){
+  getSearchValue();
+});
+
+
+
+function getSearchValue(){
+  
+  var city = $(".searchbar-input").val();
+
+  $(".result-city-name").text(city)
+
+  collectingCityID(city)
+
+}
 
