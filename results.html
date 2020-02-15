@@ -1,31 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/reset.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/skeleton.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script
-    src="https://kit.fontawesome.com/314044026f.js"
-    crossorigin="anonymous"
-  ></script>
-    <link rel="stylesheet" href="css/results.css">
+      src="https://kit.fontawesome.com/314044026f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/results.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <div class="searchbar-container">
+        <div class="searchbar">
+          <input type="text" class="searchbar-input" placeholder="City Name" />
+          <i class="fas fa-search fa-2x"></i>
+        </div>
+        <h2 class="filter-button">Filter</h2>
+      </div>
+      <div class="img-banner"></div>
+    </header>
 
-        <header>
-            <div class="searchbar-container">                
-                <div class="searchbar">
-                    <input type="text" class="searchbar-input" placeholder="City Name">
-                    <i class="fas fa-search fa-2x"></i>
-                </div>
-                <h2 class="filter-button">Filter</h2>
-            </div>
-            <div class="img-banner"></div>
-        </header>
-        
+    <section class="results-container">
+      <div class="result-title-container">
+        <h2 class="result-title">
+          Showing results for
+          <span>los angeles</span>
+        </h2>
+      </div>
+    </section>
+
+    <menu>
+      <div class="close-button-container">
+        <a href="#" class="close-button">Close</a>
+      </div>
+      <div class="cuisine-container">
+        <h2 class="menu-title">Cuisine</h2>
+        <div class="cuisine-option-container">
+          <div>
+            <input class="radio-button" type="checkbox" />
+            <h3 class="cuisine-option">American</h3>
+          </div>
+          <div>
+            <input class="radio-button" type="checkbox" />
+            <h3 class="cuisine-option">Chinese</h3>
+          </div>
+          <div>
+            <input class="radio-button" type="checkbox" />
+            <h3 class="cuisine-option">Mexican</h3>
+          </div>
+          <div>
+            <input class="radio-button" type="checkbox" />
+            <h3 class="cuisine-option">Italian</h3>
+          </div>
+          <div>
+            <input class="radio-button" type="checkbox" />
+            <h3 class="cuisine-option">Japanese</h3>
+          </div>
+          <div>
+            <input class="radio-button" type="checkbox" />
+            <h3 class="cuisine-option">Dessert</h3>
+          </div>
+        </div>
+      </div>
+      <div class="foodie-container">
+        <h2 class="menu-title">Foodie Level</h2>
+        <input type="range" min="1" max="100" value="10" class="menu-slider" />
+      </div>
+      <div class="price-range-container">
+        <h2 class="menu-title">Price Range</h2>
+        <input type="range" min="1" max="100" value="10" class="menu-slider" />
+      </div>
+      <div class="toggle-container">
+        <div class="open-now-container">
+          <input type="checkbox" />
+          <h2 class="menu-title">Open Now</h2>
+        </div>
+        <div class="online-delivery-container">
+          <input type="checkbox" />
+          <h2 class="menu-title">Online Delivery Available</h2>
+        </div>
+      </div>
+      <a href="#" class="save-button">Save</a>
+    </menu>
 
         <section class="results-container">
             <div class="result-title-container">
@@ -63,89 +126,20 @@
             </div> -->
         </section>
 
-        <menu>
-            <div class="close-button-container">
-                <a href="#" class="close-button">Close</a>
-            </div>
-            <div class="cuisine-container">
-              <h2 class="menu-title">Cuisine</h2>
-              <div class="cuisine-option-container">
-                <div>
-                  <input class="radio-button" type="checkbox" />
-                  <h3 class="cuisine-option">American</h3>
-                </div>
-                <div>
-                  <input class="radio-button" type="checkbox" />
-                  <h3 class="cuisine-option">Chinese</h3>
-                </div>
-                <div>
-                  <input class="radio-button" type="checkbox" />
-                  <h3 class="cuisine-option">Mexican</h3>
-                </div>
-                <div>
-                  <input class="radio-button" type="checkbox" />
-                  <h3 class="cuisine-option">Italian</h3>
-                </div>
-                <div>
-                  <input class="radio-button" type="checkbox" />
-                  <h3 class="cuisine-option">Japanese</h3>
-                </div>
-                <div>
-                  <input class="radio-button" type="checkbox" />
-                  <h3 class="cuisine-option">Dessert</h3>
-                </div>
-              </div>
-            </div>
-            <div class="foodie-container">
-              <h2 class="menu-title">Foodie Level</h2>
-              <input
-                type="range"
-                min="1"
-                max="100"
-                value="10"
-                class="menu-slider"
-              />
-            </div>
-            <div class="price-range-container">
-              <h2 class="menu-title">Price Range</h2>
-              <input
-                type="range"
-                min="1"
-                max="100"
-                value="10"
-                class="menu-slider"
-              />
-            </div>
-            <div class="toggle-container">
-              <div class="open-now-container">
-                <input type="checkbox" />
-                <h2 class="menu-title">Open Now</h2>
-              </div>
-              <div class="online-delivery-container">
-                <input type="checkbox" />
-                <h2 class="menu-title">Online Delivery Available</h2>
-              </div>
-            </div>
-            <a href="#" class="save-button">Save</a>
-        </menu>
+    <script>
+      var menuElement = document.querySelector("menu");
+      var filterButton = document.querySelector(".filter-button");
+      var closeButton = document.querySelector(".close-button");
 
-        <script>
-        var menuElement = document.querySelector("menu");
-        var filterButton = document.querySelector(".filter-button");
-        var closeButton = document.querySelector(".close-button");
+      filterButton.addEventListener("click", function() {
+        menuElement.classList.add("open");
+      });
 
-        filterButton.addEventListener("click", function() {
-            menuElement.classList.add("open");
-        })
+      closeButton.addEventListener("click", function() {
+        menuElement.classList.remove("open");
+      });
+    </script>
 
-        closeButton.addEventListener("click", function(){
-            menuElement.classList.remove("open");
-        })
-
-        </script>
-
-        <script src="script.js"></script>
-  
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
