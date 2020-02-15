@@ -12,7 +12,6 @@ function collectingCityID (city){
 
         // (/cities) response.location_suggestions[array with different stuff inside relating to the city (can have multiple searches, would need to edit url)].entity_id
         // The entity_id we collect in this call will need to be used to make a different ajax call that will provide us with restaurant info  
-
         collectingEstablishmentID(entityID)
 
       })
@@ -51,53 +50,11 @@ function collectingEstablishmentID (entityID){
 
 
 
-// function collectingEstablishmentID (entityID){
-//   var queryURLestablishments = "https://developers.zomato.com/api/v2.1/search?entity_id="+entityID+"&entity_type=city&count=10"
+  $(".results-container").click(".result", function(){
+    
+    console.log($(this).text())
 
-//   $.ajax({
-//       url: queryURLestablishments,
-//       headers: {"Accept": "application/json","user-key": "b57e6ffbd82ae4ad1a93a7986917dcaa"},
-//       method: "GET"
-//     }).then(function(response){
-
-//       // console.log(response)
-//       // this provides us with items such as the following: popularity, night life index, nearby rest., top cuisine, best rated restaurant array[10 choices], can also get lat and lon for top 10 rest. which we will need for google maps api 
-
-
-//       var restArray = response.restaurants
-
-//       console.log(restArray)
-
-//       for (let i = 0; i < restArray.length; i++) {
-        
-//         var resultDiv = $("<div>")
-//         resultDiv.addClass("result")
-//         resultDiv.attr("id", i)
-
-//         var restNameDiv = $("<div>")
-//         restNameDiv.addClass("result-name")
-//         var restName = restArray[i].restaurant.name
-//         $(".result-name").text(restName)
-
-//         $(resultDiv).append(restNameDiv)
-
-//         $(".results-container").append(resultDiv)
-        
-//       }
-
-
-      // RESTUARANT NAME 
-      // console.log(response.restaurants[0].restaurant.name)
-      // var restName = response.restaurants[0].restaurant.name
-      // $(".result-name").text(restName)
-
-      // RESTAURANT ADDRESS 
-      // console.log(response.restaurants[0].restaurant.location.address)
-
-
-//     })
-// }
-
+  })
 
 
 $(".fa-search").on("click", function(event){
@@ -109,6 +66,8 @@ $(".fa-search").on("click", function(event){
 
     collectingCityID(city)
 })
+
+
 
 
 
