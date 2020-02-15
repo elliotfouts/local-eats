@@ -97,16 +97,13 @@ header {
   background-position: 50% 55%;
 }
 
-/*=========================================
-*            results container            *
-=========================================*/
+/*===============================================
+*            results title container            *
+===============================================*/
 
-.results-container {
+.content-container {
   padding: 3rem;
-  position: relative;
-  z-index: 0;
 }
-
 .result-title-container {
   margin-bottom: 3rem;
 }
@@ -119,6 +116,16 @@ header {
 .result-title span {
   color: #a87932;
 }
+/*=========================================
+*            results container            *
+=========================================*/
+
+.results-container {
+  position: relative;
+  z-index: 0;
+}
+
+
 
 .result {
   padding: 1.5rem 2rem;
