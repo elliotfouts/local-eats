@@ -274,7 +274,11 @@ input[type="button"] {
   border-radius: 4px;
   border: 1px solid #bbb;
   cursor: pointer;
+<<<<<<< HEAD
+  box-sizing: border-box; */ */
+=======
   box-sizing: border-box; */ 
+>>>>>>> f5c148e065dff61ef1b60d238e3d19f3a747272e
 }
 .button:hover,
 button:hover,
@@ -296,8 +300,13 @@ input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
   color: #fff;
+<<<<<<< HEAD
+  background-color: #33c3f0;
+  /* border-color: #33c3f0; */
+=======
   background-color: #33C3F0;
   /* border-color: #33C3F0; */
+>>>>>>> f5c148e065dff61ef1b60d238e3d19f3a747272e
 }
 .button.button-primary:hover,
 button.button-primary:hover,
@@ -327,7 +336,11 @@ select {
   height: 38px;
   /* padding: 6px 10px; The 6px vertically centers text on FF, ignored by Webkit */
   /* background-color: #fff; */
+<<<<<<< HEAD
+  /* border: 1px solid #d1d1d1; */
+=======
   /* border: 1px solid #D1D1D1; */
+>>>>>>> f5c148e065dff61ef1b60d238e3d19f3a747272e
   /* border-radius: 4px; */
   box-shadow: none;
   box-sizing: border-box;
@@ -359,7 +372,11 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
+<<<<<<< HEAD
+  /* border: 1px solid #33c3f0; */
+=======
   /* border: 1px solid #33C3F0; */
+>>>>>>> f5c148e065dff61ef1b60d238e3d19f3a747272e
   outline: 0;
 }
 label,

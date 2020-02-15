@@ -30,10 +30,11 @@ header {
   margin: 3rem;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px #B1B1B1 solid;
+  border-bottom: 1px #b1b1b1 solid;
   /* padding: 0.75rem 0; */
   width: 20%;
 }
+
 .search-InputBar {
   border: none;
   background: transparent;
@@ -49,10 +50,12 @@ header {
   transition: all 400ms;
   font-size: 1.5rem;
 }
+
 .fa-searchbar:hover {
-  color: #A87932;
+  color: #a87932;
   cursor: pointer;
 }
+
 /*==================  banner img  ==================*/
 .img-banner {
   height: 10vh;
@@ -118,11 +121,11 @@ footer {
   margin-top: 2rem;
   font-size: 2rem;
   margin-bottom: 1.75rem;
-  color: #A87932;
+  color: #a87932;
   letter-spacing: 2px;
 }
 #content-preview-container {
-  color: #A87932;
+  color: #a87932;
   font-size: 1.5rem;
   width: 100%;
   display: flex;
@@ -132,7 +135,7 @@ footer {
   font-size: x-large;
 }
 .fa-star {
-  color: #A87932;
+  color: #a87932;
 }
 .fa-phone {
   margin-right: 10px;
@@ -142,6 +145,11 @@ footer {
 }
 .fa-link {
   margin-right: 10px;
+}
+
+.content-map {
+  float: left;
+  padding: 0ch;
 }
 /*=========================================
 *               Right Container       *
