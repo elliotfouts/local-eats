@@ -1,127 +1,8 @@
-/*=========================================
-*            global attributes            *
-=========================================*/
-
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
-body {
-  background: #eee;
-  color: #444;
-}
-
-a {
-  text-decoration: none;
-  color: currentColor;
-}
-
-input:focus {
-  outline: none;
-}
-
-/*==============================
-*            header            *
-==============================*/
-
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  position: sticky;
-  top: 0;
-  background: #eee;
-  z-index: 1;
-}
-
-.searchbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/*==================  searchbar container ==================*/
-
-.searchbar {
-  margin: 3rem;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px #b1b1b1 solid;
-  padding: 0.75rem 0;
-  width: 20%;
-}
-
-.search-input {
-  border: none;
-  background: transparent;
-  font-size: 1.5rem;
-  color: #444;
-}
-
-.searchbar-input:focus {
-  outline: none;
-}
-
-.fa-search {
-  transition: all 400ms;
-  font-size: 1.5rem;
-}
-
-.fa-search:hover {
-  color: #a87932;
-  cursor: pointer;
-}
-
-.filter-button {
-  margin: 3rem;
-  font-size: 1.5rem;
-  padding: 1rem;
-  border: 1px currentColor solid;
-  transition: all 300ms;
-}
-
-.filter-button:hover {
-  color: #a87932;
-  cursor: pointer;
-}
-
-/*==================  banner img  ==================*/
-
-.img-banner {
-  height: 10vh;
-  width: 100%;
-  background: url("../imgs/restuarant.jpeg");
-  background-size: cover;
-  background-position: 50% 55%;
-}
-
-/*==============================
-*            header            *
-==============================*/
-
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  position: sticky;
-  top: 0;
-  background: #eee;
-  z-index: 1;
-}
-
-.searchbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* =======================================
+/*=======================================
 *            global elements            *
 =======================================*/
 
-/* *,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -152,33 +33,35 @@ a {
 
 .container {
   width: 100%;
-} */
+}
 
 /*======================================
 *            top container            *
 ======================================*/
-/* header {
+header {
     width: 100%;
     height: 15vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-} */
+}
+
 
 /*==================  title  ==================*/
 
-/* .title {
+.title {
   font-size: 3rem;
   color: #f26b6b;
   text-transform: uppercase;
 }
- */
+
+
 
 /*======================================*      
 *               Search Bar              *
 *======================================*/
-/* 
+
 .searchbar {
   display: flex;
   justify-content: center;
@@ -186,7 +69,7 @@ a {
   transition: 500ms all;
   border: 1px solid #f26b6b;
   /* border-radius: 2rem; */
-/* }
+}
 
 .searchbar:hover {
   cursor: pointer;
@@ -198,9 +81,9 @@ a {
   background: transparent;
   transition: all 500ms ease-in-out;
   padding: 0 20px;
-} */
+}
 
-/* .search-input::placeholder {
+.search-input::placeholder {
   color: #999;
 }
 
@@ -217,27 +100,27 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   float: right;
   transition: all 300ms;
 }
 
 .fa-search:hover {
   color: #71949f;
-} 
+}
 
 /*======================================*      
 *               Img Divider             *
 *======================================*/
-/* 
+
 .title-img-banner {
   height: 10vh;
-} */
+}
 
 /*======================================
 *            left container            *
 ======================================*/
-/* 
+
 .content-container-left {
   min-width: 45%;
   min-height: 100%;
@@ -256,9 +139,18 @@ a {
   font-family: Rhodium Libre;
 }
 
+
 .content-subtitle {
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
+
+.container {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+
 }
 
 .content-subtitle:nth-child(4) {
@@ -269,10 +161,10 @@ a {
   font-size: 2.5rem;
   color: #f26b6b;
   font-family: Rhodium Libre;
-} */
+}
 
 /*==================  content-preview  ==================*/
-/* 
+
 #content-preview-container {
     display: flex;
     flex-direction: row;
@@ -295,24 +187,25 @@ a {
     cursor: pointer;
     color: #eee;
     background: #f29b34;
-} */
+}
 
 /*=======================================
 *     right container            *
 =======================================*/
 
-/* .content-container-right {
+.content-container-right {
   min-width: 55%;
   min-height: 100%;
   /* height: 100%; */
-/* background-color: rebeccapurple; */
-/* display: flex;
+  /* background-color: rebeccapurple; */
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem;
-}  */
+}
+
 /*==================  foodie-level ==================*/
-/* 
+
 .content-rating-container {
   display: flex;
   width: 100%;
@@ -328,11 +221,10 @@ a {
 .fa-star {
     height: 100px;
     color: #f29b34;
+}
 
 /*==================  Map ==================*/
 
 .content-map {
   height: 100px;
   width: 100px;
-}
-

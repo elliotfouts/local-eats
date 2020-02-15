@@ -16,6 +16,23 @@ function collectingCityID(city) {
 
     collectingEstablishmentID(entityID);
   });
+function collectingCityID (city){
+
+    var queryURL = "https://developers.zomato.com/api/v2.1/locations?query="+city
+
+    $.ajax({
+        url: queryURL,
+        headers: {"Accept": "application/json","user-key": "b57e6ffbd82ae4ad1a93a7986917dcaa"},
+        method: "GET"
+      }).then(function(response){
+
+        var entityID = response.location_suggestions[0].entity_id
+
+        // (/cities) response.location_suggestions[array with different stuff inside relating to the city (can have multiple searches, would need to edit url)].entity_id
+        // The entity_id we collect in this call will need to be used to make a different ajax call that will provide us with restaurant info  
+        collectingEstablishmentID(entityID)
+
+      })
 }
 
 function collectingEstablishmentID(entityID) {
@@ -53,6 +70,16 @@ function restaurantPrice(restaurantsArray) {
     var restName = $("<h2>");
     restName.addClass("result-name");
     restName.text(restaurantsArray[i].restaurant.name);
+        // RESTAURANT ADDRESS 
+        console.log(response.restaurants[0].restaurant.location.address)
+
+        // PHONE NUMBER 
+        console.log(response.restaurants[0].restaurant.phone_numbers)
+
+        // RESTAURANT WEBSITE 
+        console.log(response.restaurants[0].restaurant.url)
+
+      })
 
     newDiv.append(restName);
 
@@ -65,6 +92,24 @@ function restaurantPrice(restaurantsArray) {
     cuisine.addClass("result-type");
     cuisine.text(restaurantsArray[i].restaurant.cuisines);
 
+  $(".results-container").click(".result", function(){
+    
+    console.log($(this).text())
+
+  })
+
+
+$(".fa-search").on("click", function(event){
+    event.preventDefault();
+    
+    var city = $(".searchbar-input").val();
+
+    $(".result-city-name").text(city)
+
+    collectingCityID(city)
+})
+
+
     var price = $("<h3>");
     price.addClass("result-price");
     price.text(restaurantsArray[i].restaurant.price_range);
@@ -74,3 +119,5 @@ function restaurantPrice(restaurantsArray) {
     $(".results-container").append(newDiv);
   }
 }
+
+
