@@ -60,16 +60,21 @@ function restaurantPrice(restaurantsArray) {
   for (var i = 0; i < restaurantsArray.length; i++) {
     var newDiv = $("<div>");
     newDiv.addClass("result");
+    newDiv.attr("data-restInfo",JSON.stringify(restaurantsArray[i]))
+
     var restName = $("<h2>");
     restName.addClass("result-name");
     restName.text(restaurantsArray[i].restaurant.name);
     newDiv.append(restName);
+
     var newDiv2 = $("<div>");
     newDiv2.addClass("result-subtitle-container");
     newDiv.append(newDiv2);
+
     var cuisine = $("<h3>");
     cuisine.addClass("result-type");
     cuisine.text(restaurantsArray[i].restaurant.cuisines);
+
     var price = $("<h3>");
     price.addClass("result-price");
     price.text(restaurantsArray[i].restaurant.price_range);
@@ -78,9 +83,13 @@ function restaurantPrice(restaurantsArray) {
   }
 }
 
-$(".results-container").click(".result", function() {
-  console.log($(this).text());
-});
+$(document).on("click",".result",function(){
+  console.log($(this).attr("data-restInfo"))
+
+  var restInfo = $(this).attr("data-restInfo")
+
+  localStorage.setItem("restInfo", restInfo)
+})
 
 // $(".fa-search").on("click", function(event) {
 //   event.preventDefault();
