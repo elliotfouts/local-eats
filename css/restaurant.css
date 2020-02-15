@@ -39,14 +39,13 @@ a {
 *            top container            *
 ======================================*/
 header {
-    width: 100%;
-    height: 15vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
 }
-
 
 /*==================  title  ==================*/
 
@@ -55,8 +54,6 @@ header {
   color: #f26b6b;
   text-transform: uppercase;
 }
-
-
 
 /*======================================*      
 *               Search Bar              *
@@ -139,10 +136,10 @@ header {
   font-family: Rhodium Libre;
 }
 
-
 .content-subtitle {
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
+}
 
 .container {
   top: 0;
@@ -150,7 +147,6 @@ header {
   width: 100%;
   position: relative;
   z-index: 0;
-
 }
 
 .content-subtitle:nth-child(4) {
@@ -166,27 +162,26 @@ header {
 /*==================  content-preview  ==================*/
 
 #content-preview-container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .content-preview {
-    border: solid;
-    border-width: 2px;
-    border-color: #f26b6b;
-    border-radius: 50%;
-    height: 120px;
-    width: 120px;
-    margin: 1rem;
-    transition: all 300ms;
-    
+  border: solid;
+  border-width: 2px;
+  border-color: #f26b6b;
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  margin: 1rem;
+  transition: all 300ms;
 }
 
 .content-preview:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-    color: #eee;
-    background: #f29b34;
+  transform: scale(1.1);
+  cursor: pointer;
+  color: #eee;
+  background: #f29b34;
 }
 
 /*=======================================
@@ -213,14 +208,13 @@ header {
 }
 
 #content-rating-title {
-    font-size: 2rem;
-    margin-right: 1rem;
+  font-size: 2rem;
+  margin-right: 1rem;
 }
 
-
 .fa-star {
-    height: 100px;
-    color: #f29b34;
+  height: 100px;
+  color: #f29b34;
 }
 
 /*==================  Map ==================*/
@@ -228,3 +222,4 @@ header {
 .content-map {
   height: 100px;
   width: 100px;
+}
