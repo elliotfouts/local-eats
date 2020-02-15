@@ -8,19 +8,17 @@ function collectingCityID (city){
         method: "GET"
       }).then(function(response){
 
-        console.log(response)
-        var cityIDVal = response.location_suggestions[0].entity_id
-        console.log(cityIDVal)
+        var entityID = response.location_suggestions[0].entity_id
         // (/cities) response.location_suggestions[array with different stuff inside relating to the city (can have multiple searches, would need to edit url)].entity_id
         // The entity_id we collect in this call will need to be used to make a different ajax call that will provide us with restaurant info  
 
-        collectingEstablishmentID(cityIDVal)
+        collectingEstablishmentID(entityID)
 
       })
 }
 
-function collectingEstablishmentID (cityIDVal){
-    var queryURLestablishments = "https://developers.zomato.com/api/v2.1/location_details?entity_id="+cityIDVal+"&entity_type=city"
+function collectingEstablishmentID (entityID){
+    var queryURLestablishments = "https://developers.zomato.com/api/v2.1/search?entity_id="+entityID+"&entity_type=city&count=10"
 
     $.ajax({
         url: queryURLestablishments,
@@ -28,27 +26,29 @@ function collectingEstablishmentID (cityIDVal){
         method: "GET"
       }).then(function(response){
 
-        console.log(response)
+        console.log(response);
+
+        var foodType = response.restaurants[0].restaurant.cuisines;
+
         // this provides us with items such as the following: popularity, night life index, nearby rest., top cuisine, best rated restaurant array[10 choices], can also get lat and lon for top 10 rest. which we will need for google maps api 
+
+        // RESTUARANT NAME 
+        console.log(response.restaurants[0].restaurant.name)
+
       })
+
 
 }
 
-// GOOGLE MAPS - FOR LATER USE 
-// var map 
 
-// function initMap(){
-//     map = new google.maps.Map($(".content-map"), {
-//         center:{lat: -34.397 , lng: 150.644},
-//         zoom:8
-//     });
-// }
 
-$(".btn").on("click", function(event){
+$(".fa-search").on("click", function(event){
     event.preventDefault();
     
-    var city = $(".search-input").val();
+    var city = $(".searchbar-input").val();
 
     collectingCityID(city)
 })
+
+
 
