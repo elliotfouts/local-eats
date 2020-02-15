@@ -39,6 +39,11 @@ function collectingEstablishmentID (entityID){
         // RESTAURANT ADDRESS 
         console.log(response.restaurants[0].restaurant.location.address)
 
+        // PHONE NUMBER 
+        console.log(response.restaurants[0].restaurant.phone_numbers)
+
+        // RESTAURANT WEBSITE 
+        console.log(response.restaurants[0].restaurant.url)
 
       })
 
@@ -74,20 +79,20 @@ function collectingEstablishmentID (entityID){
 //         var restName = restArray[i].restaurant.name
 //         $(".result-name").text(restName)
 
-//         resultDiv.append(restNameDiv)
+//         $(resultDiv).append(restNameDiv)
 
 //         $(".results-container").append(resultDiv)
         
 //       }
 
 
-//       // RESTUARANT NAME 
-//       // console.log(response.restaurants[0].restaurant.name)
-//       // var restName = response.restaurants[0].restaurant.name
-//       // $(".result-name").text(restName)
+      // RESTUARANT NAME 
+      // console.log(response.restaurants[0].restaurant.name)
+      // var restName = response.restaurants[0].restaurant.name
+      // $(".result-name").text(restName)
 
-//       // RESTAURANT ADDRESS 
-//       // console.log(response.restaurants[0].restaurant.location.address)
+      // RESTAURANT ADDRESS 
+      // console.log(response.restaurants[0].restaurant.location.address)
 
 
 //     })
