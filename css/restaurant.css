@@ -43,13 +43,14 @@ header {
   border-bottom: 1px #b1b1b1 solid;
   padding: 0.75rem 0;
   width: 20%;
+  background: transparent;
 }
 
-.search-input {
+.searchInputBar {
   border: none;
-  background: transparent;
   font-size: 1.5rem;
   color: #444;
+  background: transparent;
 }
 
 .search-input:focus {
@@ -128,19 +129,22 @@ footer {
 #content-phone {
   font-size: 15px;
   margin-bottom: 2rem;
-  margin-left: 30px;
+  margin-left: 35px;
+  letter-spacing: 1px;
 }
 
 #content-address {
   font-size: 15px;
   margin-bottom: 2rem;
-  margin-left: 30px;
+  margin-left: 35px;
+  letter-spacing: 1px;
 }
 
 #content-website {
   font-size: 15px;
   margin-bottom: 2rem;
-  margin-left: 30px;
+  margin-left: 35px;
+  letter-spacing: 1px;
 }
 
 #content-preview-title {
