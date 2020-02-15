@@ -58,6 +58,7 @@ header {
   background: transparent;
   font-size: 1.5rem;
   color: #444;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .searchbar-input:focus {
