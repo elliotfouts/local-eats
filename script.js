@@ -11,9 +11,9 @@ function collectingCityID(city) {
     method: "GET"
   }).then(function(response) {
     var entityID = response.location_suggestions[0].entity_id;
+
     // (/cities) response.location_suggestions[array with different stuff inside relating to the city (can have multiple searches, would need to edit url)].entity_id
     // The entity_id we collect in this call will need to be used to make a different ajax call that will provide us with restaurant info
-
     collectingEstablishmentID(entityID);
   });
 }
@@ -36,14 +36,6 @@ function collectingEstablishmentID(entityID) {
     restaurantPrice(response.restaurants);
   });
 }
-
-$(".fa-search").on("click", function(event) {
-  event.preventDefault();
-
-  var city = $(".searchbar-input").val();
-
-  collectingCityID(city);
-});
 
 function restaurantPrice(restaurantsArray) {
   for (var i = 0; i < restaurantsArray.length; i++) {
@@ -74,3 +66,17 @@ function restaurantPrice(restaurantsArray) {
     $(".results-container").append(newDiv);
   }
 }
+
+$(".results-container").click(".result", function() {
+  console.log($(this).text());
+});
+
+$(".fa-search").on("click", function(event) {
+  event.preventDefault();
+
+  var city = $(".searchbar-input").val();
+
+  $(".result-city-name").text(city);
+
+  collectingCityID(city);
+});
