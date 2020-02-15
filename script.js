@@ -1,3 +1,23 @@
+// grabs initial search result from local storage
+function initResults() {
+  var city = localStorage.getItem("city");
+  loadResults(city);
+}
+initResults();
+
+// grabs new search value 
+$(".result-search-button").click(function(){
+  var city = $(".searchbar-input").val();
+  localStorage.setItem("city", city)
+  loadResults(city);
+
+});
+
+// actually loads the search results 
+function loadResults(city) {
+  $(".result-city-name").text(city)
+  collectingCityID(city)
+}
 
 
 function collectingCityID (city){
@@ -103,25 +123,6 @@ function collectingEstablishmentID (entityID){
 
 // adds functionality to search buttons
 
-$(".home-search-button").on("click", function() {
-  location.replace("results.html");
-  getSearchValue();
-});
 
 
-$(".result-search-button").click(function(){
-  getSearchValue();
-});
-
-
-
-function getSearchValue(){
-  
-  var city = $(".searchbar-input").val();
-
-  $(".result-city-name").text(city)
-
-  collectingCityID(city)
-
-}
 
