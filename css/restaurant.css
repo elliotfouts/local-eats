@@ -27,20 +27,13 @@ input:focus {
 ==============================*/
 
 header {
-  display: flex;
   flex-direction: column;
   align-items: left;
-  position: sticky;
   top: 0;
   background: #eee;
   z-index: 1;
 }
 
-.searchbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 /*==================  searchbar container ==================*/
 
 .searchbar {
@@ -52,14 +45,14 @@ header {
   width: 20%;
 }
 
-.searchbar-input {
+.search-input {
   border: none;
   background: transparent;
   font-size: 1.5rem;
   color: #444;
 }
 
-.searchbar-input:focus {
+.search-input:focus {
   outline: none;
 }
 
@@ -94,4 +87,79 @@ header {
   background: url("../imgs/restuarant.jpeg");
   background-size: cover;
   background-position: 50% 55%;
+}
+
+/*=========================================
+*                    Body                 *
+=========================================*/
+
+.content-title {
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  font-size: 50px;
+}
+
+#content-rating-title {
+  margin-bottom: 1.75rem;
+  font-size: 30px;
+  margin-left: 30px;
+}
+
+#content-phone {
+  font-size: 15px;
+  margin-bottom: 1rem;
+  margin-left: 30px;
+}
+
+#content-address {
+  font-size: 15px;
+  margin-bottom: 1rem;
+  margin-left: 30px;
+}
+
+#content-website {
+  font-size: 15px;
+  margin-bottom: 1rem;
+  margin-left: 30px;
+}
+
+#content-preview-title {
+  margin-top: 1rem;
+  font-size: 50px;
+  margin-bottom: 1.75rem;
+  color: #a87932;
+}
+
+#content-preview-container {
+  color: #a87932;
+  font-size: 1.75rem;
+}
+
+.content-preview {
+}
+
+.fa-star {
+  color: #a87932;
+}
+
+/*=========================================
+*            containers                   *
+=========================================*/
+
+.one-half {
+  padding: 3rem;
+  position: relative;
+  z-index: 0;
+}
+
+header,
+section,
+footer {
+  overflow: auto;
+}
+
+.container {
+  top: 0;
+  left: 0;
+  width: 100%;
 }
