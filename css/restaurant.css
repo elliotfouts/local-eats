@@ -1,31 +1,22 @@
-/* =========================================
-*            global attributes            *
-=========================================*/
-
 *,
 *::after,
 *::before {
   box-sizing: border-box;
 }
-
 body {
   background: #eee;
   color: #444;
 }
-
 a {
   text-decoration: none;
   color: currentColor;
 }
-
 input:focus {
   outline: none;
 }
-
 /*==============================
 *            header            *
 ==============================*/
-
 header {
   flex-direction: column;
   align-items: left;
@@ -34,9 +25,7 @@ header {
   z-index: 1;
   width: 100%;
 }
-
 /*==================  searchbar container ==================*/
-
 .searchbar {
   margin: 3rem;
   display: flex;
@@ -54,11 +43,9 @@ header {
   /* margin-bottom: 0; */
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
-
 .search-InputBar:focus {
   outline: none;
 }
-
 .fa-search {
   transition: all 400ms;
   font-size: 1.5rem;
@@ -70,7 +57,6 @@ header {
 }
 
 /*==================  banner img  ==================*/
-
 .img-banner {
   height: 10vh;
   width: 100%;
@@ -78,7 +64,6 @@ header {
   background-size: cover;
   background-position: 50% 55%;
 }
-
 /*=========================================
 *                    Body                 *
 =========================================*/
@@ -87,13 +72,11 @@ header {
   position: relative;
   z-index: 0;
 }
-
 /* header,
 section,
 footer {
   overflow: auto;
 } */
-
 .container {
   top: 0;
   left: 0;
@@ -104,42 +87,36 @@ footer {
 /*=========================================
 *                    Left Container       *
 =========================================*/
-
 .content-title {
   text-transform: uppercase;
   margin-bottom: 3rem;
   font-size: 2rem;
   letter-spacing: 0.5px;
 }
-
 #content-rating-title {
   margin-bottom: 2rem;
   font-size: 1.5rem;
   margin-left: 30px;
   letter-spacing: 0.5px;
 }
-
 #content-phone {
   font-size: 15px;
   margin-bottom: 2rem;
   margin-left: 35px;
   letter-spacing: 1px;
 }
-
 #content-address {
   font-size: 15px;
   margin-bottom: 2rem;
   margin-left: 35px;
   letter-spacing: 1px;
 }
-
 #content-website {
   font-size: 15px;
   margin-bottom: 2rem;
   margin-left: 35px;
   letter-spacing: 1px;
 }
-
 #content-preview-title {
   margin-top: 2rem;
   font-size: 2rem;
@@ -147,7 +124,6 @@ footer {
   color: #a87932;
   letter-spacing: 2px;
 }
-
 #content-preview-container {
   color: #a87932;
   font-size: 1.5rem;
@@ -155,31 +131,29 @@ footer {
   display: flex;
   justify-content: space-around;
 }
-
 .content-preview {
   font-size: x-large;
 }
-
 .fa-star {
   color: #a87932;
 }
-
 .fa-phone {
   margin-right: 10px;
 }
-
 .fa-map-pin {
   margin-right: 10px;
 }
-
 .fa-link {
   margin-right: 10px;
 }
 
+.content-map {
+  float: left;
+  padding: 0ch;
+}
 /*=========================================
 *               Right Container       *
 =========================================*/
-
 .content-map {
   float: left;
   padding: 0ch;
