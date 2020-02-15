@@ -109,6 +109,8 @@ footer {
   top: 0;
   left: 0;
   width: 100%;
+  position: relative;
+  z-index: 0;
 }
 /*=========================================
 *                    Left Container              *
