@@ -92,60 +92,6 @@ header {
 /*=========================================
 *                    Body                 *
 =========================================*/
-
-.content-title {
-  text-transform: uppercase;
-  margin-bottom: 3rem;
-  font-size: 50px;
-}
-
-#content-rating-title {
-  margin-bottom: 1.75rem;
-  font-size: 30px;
-  margin-left: 30px;
-}
-
-#content-phone {
-  font-size: 15px;
-  margin-bottom: 1rem;
-  margin-left: 30px;
-}
-
-#content-address {
-  font-size: 15px;
-  margin-bottom: 1rem;
-  margin-left: 30px;
-}
-
-#content-website {
-  font-size: 15px;
-  margin-bottom: 1rem;
-  margin-left: 30px;
-}
-
-#content-preview-title {
-  margin-top: 1rem;
-  font-size: 50px;
-  margin-bottom: 1.75rem;
-  color: #a87932;
-}
-
-#content-preview-container {
-  color: #a87932;
-  font-size: 1.75rem;
-}
-
-.content-preview {
-}
-
-.fa-star {
-  color: #a87932;
-}
-
-/*=========================================
-*            containers                   *
-=========================================*/
-
 .one-half {
   padding: 3rem;
   position: relative;
@@ -162,4 +108,72 @@ footer {
   top: 0;
   left: 0;
   width: 100%;
+}
+/*=========================================
+*                    Left Container              *
+=========================================*/
+
+.content-title {
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  font-size: 50px;
+}
+
+#content-rating-title {
+  margin-bottom: 1.75rem;
+  font-size: 30px;
+  margin-left: 30px;
+}
+
+#content-phone {
+  font-size: 15px;
+  margin-bottom: 2rem;
+  margin-left: 30px;
+}
+
+#content-address {
+  font-size: 15px;
+  margin-bottom: 2rem;
+  margin-left: 30px;
+}
+
+#content-website {
+  font-size: 15px;
+  margin-bottom: 2rem;
+  margin-left: 30px;
+}
+
+#content-preview-title {
+  margin-top: 1rem;
+  font-size: 50px;
+  margin-bottom: 1.75rem;
+  color: #a87932;
+}
+
+#content-preview-container {
+  color: #a87932;
+  font-size: 1.75rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.content-preview {
+  font-size: x-large;
+}
+
+.fa-star {
+  color: #a87932;
+}
+
+.fa-phone {
+  margin-right: 10px;
+}
+
+.fa-map-pin {
+  margin-right: 10px;
+}
+
+.fa-link {
+  margin-right: 10px;
 }
