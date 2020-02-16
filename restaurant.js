@@ -13,9 +13,7 @@ setTimeout(function(){
 }, animationDelay)
 
 // updates content with latest restaurant 
-function initContent() {
-    var restaurantInfo = JSON.parse(localStorage.getItem("restInfo"));
-    console.log(restaurantInfo);
+function initContent(restaurantInfo) {
 
     var name = restaurantInfo.restaurant.name;
     var foodieLevel = restaurantInfo.restaurant.user_rating.aggregate_rating;
@@ -26,7 +24,8 @@ function initContent() {
     var latitude = restaurantInfo.restaurant.location.latitude;
     var longitude = restaurantInfo.restaurant.location.longitude;
     var googleMapUrl = "https://www.google.com/maps/embed/v1/place?key=AIzaSyBJPnC19aXMo2B3ng58WQBA1RsmUEonMN8&q=" + address
-    
+    var restInfoAdditional = JSON.parse(localStorage.getItem("restInfoAdditional"))
+    var photoUrlArr = JSON.parse(localStorage.getItem("photoUrlArr"))
 
     nameElement.text(name)
     avgPriceElement.text(avgPrice)
@@ -36,9 +35,14 @@ function initContent() {
     urlElement.attr("href", websiteUrl);
     urlElement.attr("target", "blank")
     mapElement.attr("src", googleMapUrl)
-    console.log(mapElement);
+    for (i = 0; i < photoUrlArr.length; i++) {
+        var previewElement = $(".content-preview").eq(i);
+        previewElement.attr("style", "background: url('" + photoUrlArr[i] + "'); background-size: cover;background-position: center;")
+        previewElement.attr("data-restInfo", JSON.stringify(restInfoAdditional[i]));
+        console.log("background: url:" + photoUrlArr[i] + ";")
+    }
 }
-initContent();
+initContent(JSON.parse(localStorage.getItem("restInfo")));
 
 
 function formatAddress () {}
@@ -54,3 +58,10 @@ $(".fa-search").click(function(){
         location.replace("results.html");
     }, 700)
   });
+
+
+// updates page if nearby restaurant is clicked 
+$(document).on("click", ".content-preview", function(event){
+    var restInfoNew = JSON.parse(event.target.getAttribute("data-restInfo"));
+    initContent(restInfoNew);
+})
