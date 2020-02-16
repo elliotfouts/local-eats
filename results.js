@@ -51,7 +51,6 @@ function collectingEstablishmentID(entityID) {
     },
     method: "GET"
   }).then(function(response) {
-    console.log(response);
     restaurantPrice(response.restaurants);
   });
 }
@@ -73,7 +72,11 @@ function restaurantPrice(restaurantsArray) {
 
     var cuisine = $("<h3>");
     cuisine.addClass("result-type");
-    cuisine.text(restaurantsArray[i].restaurant.cuisines);
+    var type = restaurantsArray[i].restaurant.cuisines;
+    if (type == "") {
+      type = "unknown cuisine";
+    }
+    cuisine.text(type);
 
     var price = $("<h3>");
     price.addClass("result-price");
@@ -81,7 +84,9 @@ function restaurantPrice(restaurantsArray) {
     newDiv2.append(cuisine).append(price);
     $(".results-container").append(newDiv);
   }
+  console.log($(".result"))
 }
+
 
 $(document).on("click",".result",function(){
   console.log($(this).attr("data-restInfo"))
