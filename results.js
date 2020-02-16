@@ -114,7 +114,10 @@ $(document).on("click",".result",function(){
   var restInfo = $(this).attr("data-restInfo")
 
   localStorage.setItem("restInfo", restInfo)
-  location.replace("restaurant.html");
+  $("#overlay").removeClass("after")
+  setTimeout(function(){
+      location.replace("restaurant.html");
+  }, 700)
 })
 
 $(".fa-search").on("click", function(event) {
