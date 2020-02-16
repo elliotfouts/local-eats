@@ -108,21 +108,21 @@ function restaurantPrice(restaurantsArray) {
 }
 
 
-// $(document).on("click",".result",function(){
-//   console.log($(this).attr("data-restInfo"))
+$(document).on("click",".result",function(){
+  console.log($(this).attr("data-restInfo"))
 
-//   var restInfo = $(this).attr("data-restInfo")
+  var restInfo = $(this).attr("data-restInfo")
 
-//   localStorage.setItem("restInfo", restInfo)
-//   location.replace("restaurant.html");
-// })
+  localStorage.setItem("restInfo", restInfo)
+  location.replace("restaurant.html");
+})
 
-// $(".fa-search").on("click", function(event) {
-//   event.preventDefault();
+$(".fa-search").on("click", function(event) {
+  event.preventDefault();
 
-//   var city = $(".searchbar-input").val();
+  var city = $(".searchbar-input").val();
 
-//   $(".result-city-name").text(city);
+  $(".result-city-name").text(city);
 
-//   collectingCityID(city);
-// });
+  collectingCityID(city);
+});
