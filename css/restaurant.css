@@ -6,6 +6,7 @@
 body {
   background: #eee;
   color: #444;
+  overflow: hidden;
 }
 a {
   text-decoration: none;
@@ -171,7 +172,7 @@ footer {
   height: 100vh;
   top: 0;
   left: 0;
-  background: #000;
+  background: #444;
   z-index: 50;
   transition: all 700ms;
 }

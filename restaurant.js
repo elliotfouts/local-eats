@@ -6,6 +6,11 @@ var urlElement = $("#content-website")
 var urlElementSpan = $(".url-span");
 var mapElement = $("#google-map");
 
+// entrance animation
+animationDelay = 100;
+setTimeout(function(){
+  $("#overlay").addClass("after")
+}, animationDelay)
 
 // updates content with latest restaurant 
 function initContent() {
@@ -44,5 +49,8 @@ function displayFoodieLevel () {}
 $(".fa-search").click(function(){
     var city = $(".search-InputBar").val();
     localStorage.setItem("city", city)
-    location.replace("results.html");
+    $("#overlay").removeClass("after")
+    setTimeout(function(){
+        location.replace("results.html");
+    }, 700)
   });
