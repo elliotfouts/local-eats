@@ -7,6 +7,7 @@ var urlElementSpan = $(".url-span");
 var mapElement = $("#google-map");
 
 
+// updates content with latest restaurant 
 function initContent() {
     var restaurantInfo = JSON.parse(localStorage.getItem("restInfo"));
     console.log(restaurantInfo);
@@ -37,3 +38,11 @@ initContent();
 
 function formatAddress () {}
 function displayFoodieLevel () {}
+
+
+// grabs new search value 
+$(".fa-search").click(function(){
+    var city = $(".search-InputBar").val();
+    localStorage.setItem("city", city)
+    location.replace("results.html");
+  });
