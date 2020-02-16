@@ -19,3 +19,8 @@ $(".home-search-button").on("click", function() {
       location.replace("results.html");
     }, animationDelay)
   });
+
+
+// // google autocomplete 
+// var input = document.querySelector(".searchbar-input");
+// var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
