@@ -1,3 +1,13 @@
+// entrance animation
+animationDelay = 100;
+setTimeout(function(){
+  $("#overlay").addClass("after")
+  $(".searchbar").addClass("appear")
+  $(".filter-button").addClass("appear")
+  $(".img-banner").addClass("grow")
+  $(".result-title").addClass("appear")
+}, animationDelay)
+
 // grabs initial search result from local storage
 function initResults() {
   var city = localStorage.getItem("city");
@@ -84,18 +94,28 @@ function restaurantPrice(restaurantsArray) {
     newDiv2.append(cuisine).append(price);
     $(".results-container").append(newDiv);
   }
-  console.log($(".result"))
+  var i = 0;
+  var animationInterval = setInterval( function() {
+
+    $(".result").eq(i).addClass("appear");
+    
+    if (i == restaurantsArray.length) {
+      clearInterval(animationInterval)
+    }
+
+    i++;
+  }, 200);
 }
 
 
-$(document).on("click",".result",function(){
-  console.log($(this).attr("data-restInfo"))
+// $(document).on("click",".result",function(){
+//   console.log($(this).attr("data-restInfo"))
 
-  var restInfo = $(this).attr("data-restInfo")
+//   var restInfo = $(this).attr("data-restInfo")
 
-  localStorage.setItem("restInfo", restInfo)
-  location.replace("restaurant.html");
-})
+//   localStorage.setItem("restInfo", restInfo)
+//   location.replace("restaurant.html");
+// })
 
 // $(".fa-search").on("click", function(event) {
 //   event.preventDefault();
