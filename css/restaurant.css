@@ -134,8 +134,18 @@ footer {
   justify-content: space-around;
 }
 .content-preview {
-  font-size: x-large;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background: red;
+  transition: all 500ms;
 }
+
+.content-preview:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 .fa-star {
   color: #a87932;
 }

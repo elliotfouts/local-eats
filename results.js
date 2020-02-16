@@ -44,6 +44,7 @@ function collectingCityID(city) {
     var entityID = response.location_suggestions[0].entity_id;
     // (/cities) response.location_suggestions[array with different stuff inside relating to the city (can have multiple searches, would need to edit url)].entity_id
     // The entity_id we collect in this call will need to be used to make a different ajax call that will provide us with restaurant info
+
     collectingEstablishmentID(entityID);
   });
 }
@@ -109,11 +110,22 @@ function restaurantPrice(restaurantsArray) {
 
 
 $(document).on("click",".result",function(){
-  console.log($(this).attr("data-restInfo"))
+  var resultArr = $(".result")
+  var restInfoArr = [];
+  var photoUrlArr = [];
 
   var restInfo = $(this).attr("data-restInfo")
-
   localStorage.setItem("restInfo", restInfo)
+
+  for (var i = 0; i < 4; i++) {
+    var restInfoExtra = JSON.parse(resultArr.eq(i).attr("data-restInfo"));
+    var photoUrl = restInfoExtra.restaurant.featured_image;
+    restInfoArr.push(restInfoExtra);
+    photoUrlArr.push(photoUrl)
+    console.log(restInfoArr)
+  }
+  localStorage.setItem("restInfoAdditional", JSON.stringify(restInfoArr));
+  localStorage.setItem("photoUrlArr", JSON.stringify(photoUrlArr));
   $("#overlay").removeClass("after")
   setTimeout(function(){
       location.replace("restaurant.html");
