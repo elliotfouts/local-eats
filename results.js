@@ -91,7 +91,20 @@ function restaurantPrice(restaurantsArray) {
 
     var price = $("<h3>");
     price.addClass("result-price");
-    price.text(restaurantsArray[i].restaurant.price_range);
+    var priceNum = restaurantsArray[i].restaurant.price_range
+    
+    if (priceNum <=1){
+      price.text("$");
+    } else if (priceNum <=2){
+      price.text("$$");
+    } else if (priceNum <=3){
+      price.text("$$$");
+    } else if (priceNum <=4){
+      price.text("$$$$");
+    } else if (priceNum >=5){
+      price.text("$$$$$");
+    }
+
     newDiv2.append(cuisine).append(price);
     $(".results-container").append(newDiv);
   }
