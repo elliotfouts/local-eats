@@ -96,3 +96,7 @@ $(document).on("click", ".content-preview", function(event){
     var restInfoNew = JSON.parse(event.target.getAttribute("data-restInfo"));
     initContent(restInfoNew);
 })
+
+// google autocomplete 
+var input = document.querySelector(".search-InputBar");
+var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
