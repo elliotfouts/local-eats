@@ -26,6 +26,7 @@ input:focus {
   display: none;
 }
 
+
 /*==============================
 *            header            *
 ==============================*/
@@ -277,6 +278,10 @@ menu.open {
   height: 20px;
   background-color: #eee;
   border-radius: 50%;
+}
+
+h3 {
+  margin: 10px;
 }
 /*==================  price range  ==================*/
 
