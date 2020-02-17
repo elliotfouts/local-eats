@@ -25,6 +25,11 @@ $(".result-search-button").click(function(){
 
 // actually loads the search results 
 function loadResults(city) {
+  for (var i = 0; i < city.length; i++) {
+    if (city[i] == ",") {
+      city = city.substr(0, i);
+    }
+  }
   $(".result-city-name").text(city)
   collectingCityID(city)
 }
@@ -53,7 +58,7 @@ function collectingEstablishmentID(entityID) {
   var queryURLestablishments =
     "https://developers.zomato.com/api/v2.1/search?entity_id=" +
     entityID +
-    "&entity_type=city&count=10";
+    "&entity_type=city&count=30";
   $.ajax({
     url: queryURLestablishments,
     headers: {
@@ -149,8 +154,35 @@ $(".fa-search").on("click", function(event) {
   event.preventDefault();
 
   var city = $(".searchbar-input").val();
-
+  for (var i = 0; i < city.length; i++) {
+    if (city[i] == ",") {
+      city = city.substr(0, i);
+    }
+  }
   $(".result-city-name").text(city);
 
   collectingCityID(city);
 });
+
+
+// toggles menu open and closed 
+var menuElement = document.querySelector("menu");
+var filterButton = document.querySelector(".filter-button");
+var closeButton = document.querySelector(".close-button");
+
+filterButton.addEventListener("click", function() {
+  menuElement.classList.add("open");
+});
+
+closeButton.addEventListener("click", function() {
+  menuElement.classList.remove("open");
+});
+
+// google autocomplete 
+var input = document.querySelector(".searchbar-input");
+var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
+
+$(window).on("scroll", function(){
+  var autocompleteAttr = $(".searchbar-input").attr("autocomplete");
+  console.log(autocompleteAttr);
+})
