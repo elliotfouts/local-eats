@@ -169,9 +169,18 @@ $(".fa-search").on("click", function(event) {
 var menuElement = document.querySelector("menu");
 var filterButton = document.querySelector(".filter-button");
 var closeButton = document.querySelector(".close-button");
+var saveButton = document.querySelector(".save-button")
 
 filterButton.addEventListener("click", function() {
   menuElement.classList.add("open");
+});
+
+saveButton.addEventListener("click", function() {
+  var foodieLevelSliderInput = $(".menu-slider-foodie").val();
+  var priceLevelSliderInput = $(".menu-slider-price").val();
+  console.log(foodieLevelSliderInput)
+  console.log(priceLevelSliderInput)
+  // menuElement.classList.remove("open");
 });
 
 closeButton.addEventListener("click", function() {

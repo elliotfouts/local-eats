@@ -279,6 +279,10 @@ menu.open {
   background-color: #eee;
   border-radius: 50%;
 }
+
+h3 {
+  margin: 10px;
+}
 /*==================  price range  ==================*/
 
 .price-range-container {
