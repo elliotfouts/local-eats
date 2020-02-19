@@ -20,7 +20,7 @@ input:focus {
 ==============================*/
 header {
   flex-direction: column;
-  align-items: left;
+  /* align-items: left; */
   top: 0;
   background: #eee;
   z-index: 1;
@@ -30,9 +30,12 @@ header {
 .searchbar {
   margin: 3rem;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   border-bottom: 1px #b1b1b1 solid;
-  width: 20%;
+  clear: both;
+  margin: auto;
+  float: left;
+  margin-top: 1rem;
 }
 
 .search-InputBar {
@@ -40,9 +43,7 @@ header {
   background: transparent;
   font-size: 1.5rem;
   color: #444;
-  /* margin-bottom: 0; */
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  padding: 1rem;
 }
 .search-InputBar:focus {
   outline: none;
@@ -50,7 +51,7 @@ header {
 .fa-search {
   transition: all 400ms;
   font-size: 1.3rem;
-  margin-bottom: 1%;
+  /* margin-bottom: 1%; */
 }
 
 .fa-search:hover {
@@ -58,16 +59,16 @@ header {
   cursor: pointer;
 }
 
-
 .filter-button {
-  margin: 3rem;
   font-size: 1.5rem;
   padding: 1rem;
   border: 1px currentColor solid;
-  /* opacity: 0;
-  transform: translateY(-200px); */
   transition: all 300ms;
-  /* transition-delay: 500ms; */
+  float: right;
+  /* max-width: 100%; */
+  /* clear: both; */
+  margin: 0 auto;
+  text-align: center;
 }
 
 .filter-button:hover {
@@ -187,7 +188,6 @@ footer {
   float: left;
   padding: 0ch;
 }
-
 
 /*==================================
 *            animations            *
