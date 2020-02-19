@@ -110,6 +110,19 @@ function restaurantPrice(restaurantsArray) {
       price.text("$$$$$");
     }
 
+    // Hides results options that do not match the price range selected by the user
+    var priceRange = localStorage.getItem("priceLevelSlider")
+    if(priceRange <= 10 && priceNum >= 1){
+      $(".result").addClass("hide")
+    } else if (priceRange <= 20 && priceNum >= 2){
+      $(".result").addClass("hide")
+    } else if (priceRange <= 30 && priceNum >= 3){
+      $(".result").addClass("hide")
+    } else if (priceRange <= 40 && priceNum >= 4){
+      $(".result").addClass("hide")
+    } else if (priceRange > 40 && priceNum >= 5){
+    }
+
     newDiv2.append(cuisine).append(price);
     $(".results-container").append(newDiv);
   }
@@ -175,12 +188,29 @@ filterButton.addEventListener("click", function() {
   menuElement.classList.add("open");
 });
 
+// Saved Filtered Options 
 saveButton.addEventListener("click", function() {
   var foodieLevelSliderInput = $(".menu-slider-foodie").val();
   var priceLevelSliderInput = $(".menu-slider-price").val();
-  console.log(foodieLevelSliderInput)
-  console.log(priceLevelSliderInput)
-  // menuElement.classList.remove("open");
+  var openNowCheckBox = $(".open-now");
+  var olDeliveryCheckbox = $(".online-delivery");
+
+  localStorage.setItem("foodieLevelSlider", foodieLevelSliderInput);
+  localStorage.setItem("priceLevelSlider", priceLevelSliderInput);
+
+  if (openNowCheckBox.prop("checked")){
+    localStorage.setItem("openNowCheckBox",openNowCheckBox.val());
+  } else {
+    localStorage.setItem("openNowCheckBox","0")
+  }
+
+  if (olDeliveryCheckbox.prop("checked")){
+    localStorage.setItem("olDeliveryCheckBox",$(".online-delivery").val());
+  } else {
+    localStorage.setItem("olDeliveryCheckBox","0")
+  }
+
+  menuElement.classList.remove("open");
 });
 
 closeButton.addEventListener("click", function() {
@@ -193,5 +223,5 @@ var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)'
 
 $(window).on("scroll", function(){
   var autocompleteAttr = $(".searchbar-input").attr("autocomplete");
-  console.log(autocompleteAttr);
+  // console.log(autocompleteAttr);
 })
