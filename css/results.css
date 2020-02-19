@@ -351,3 +351,10 @@ h3 {
   opacity: 1;
   transform: translateX(0) translateY(0);
 }
+
+
+
+.hide {
+  display: none;
+}
+
