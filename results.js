@@ -54,6 +54,8 @@ function collectingCityID(city) {
   });
 }
 
+var restaurantsArray 
+
 function collectingEstablishmentID(entityID) {
   var queryURLestablishments =
     "https://developers.zomato.com/api/v2.1/search?entity_id=" +
@@ -68,8 +70,11 @@ function collectingEstablishmentID(entityID) {
     method: "GET"
   }).then(function(response) {
     restaurantPrice(response.restaurants);
+    restaurantsArray = response.restaurants
   });
 }
+
+console.log(restaurantsArray)
 
 function restaurantPrice(restaurantsArray) {
   for (var i = 0; i < restaurantsArray.length; i++) {
@@ -77,7 +82,6 @@ function restaurantPrice(restaurantsArray) {
     newDiv.addClass("result");
     newDiv.attr("data-restInfo",JSON.stringify(restaurantsArray[i]))
 
-    console.log(restaurantsArray[i].restaurant)
     var restName = $("<h2>");
     restName.addClass("result-name");
     restName.text(restaurantsArray[i].restaurant.name);
@@ -95,6 +99,8 @@ function restaurantPrice(restaurantsArray) {
     }
     cuisine.text(type);
 
+    cuisineFilter(type, newDiv)
+
     var price = $("<h3>");
     price.addClass("result-price");
     var priceNum = restaurantsArray[i].restaurant.price_range
@@ -111,18 +117,7 @@ function restaurantPrice(restaurantsArray) {
       price.text("$$$$$");
     }
 
-    // Hides results options that do not match the price range selected by the user
-    var priceRange = localStorage.getItem("priceLevelSlider")
-    if(priceRange <= 10 && priceNum >= 1){
-      $(".result").addClass("hide")
-    } else if (priceRange <= 20 && priceNum >= 2){
-      $(".result").addClass("hide")
-    } else if (priceRange <= 30 && priceNum >= 3){
-      $(".result").addClass("hide")
-    } else if (priceRange <= 40 && priceNum >= 4){
-      $(".result").addClass("hide")
-    } else if (priceRange > 40 && priceNum >= 5){
-    }
+    priceFilter(priceNum)
 
     newDiv2.append(cuisine).append(price);
     $(".results-container").append(newDiv);
@@ -193,18 +188,10 @@ filterButton.addEventListener("click", function() {
 saveButton.addEventListener("click", function() {
   var foodieLevelSliderInput = $(".menu-slider-foodie").val();
   var priceLevelSliderInput = $(".menu-slider-price").val();
-  var openNowCheckBox = $(".open-now");
   var olDeliveryCheckbox = $(".online-delivery");
 
   localStorage.setItem("foodieLevelSlider", foodieLevelSliderInput);
-
   localStorage.setItem("priceLevelSlider", priceLevelSliderInput);
-
-  if (openNowCheckBox.prop("checked")){
-    localStorage.setItem("openNowCheckBox",openNowCheckBox.val());
-  } else {
-    localStorage.setItem("openNowCheckBox","0")
-  }
 
   if (olDeliveryCheckbox.prop("checked")){
     localStorage.setItem("olDeliveryCheckBox",$(".online-delivery").val());
@@ -212,18 +199,87 @@ saveButton.addEventListener("click", function() {
     localStorage.setItem("olDeliveryCheckBox","0")
   }
 
+  var cuisineArray = $(".radio-button");
+  var isChecked = []
+  for (let i = 0; i < cuisineArray.length; i++) {
+      isChecked.push(cuisineArray.eq(i).prop("checked"))
+    }
+
+    localStorage.setItem("cuisineArray", JSON.stringify(isChecked));
+
   menuElement.classList.remove("open");
+
+    $(".results-container").empty()
+
+    restaurantPrice(restaurantsArray)
 });
 
 closeButton.addEventListener("click", function() {
   menuElement.classList.remove("open");
 });
 
-// google autocomplete 
-var input = document.querySelector(".searchbar-input");
-var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
+function cuisineFilter(type, specificResult){
+  var cuisineArray = $(".radio-button");
+  var cuisineChoices = $(".cuisine-option");
 
-$(window).on("scroll", function(){
-  var autocompleteAttr = $(".searchbar-input").attr("autocomplete");
-  // console.log(autocompleteAttr);
-})
+  for (let f = 0; f < type.length; f++) {
+    if (type[f] == ","){
+      type= type.substr(0,f);
+    }
+  }
+
+  if ( $("#American").prop("checked") == false && type == "American" || type =="Burger" || type =="Sandwich" || type =="Steak" || type =="Bar Food" || type =="New American" ||type == "Southern"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Chinese").prop("checked") == false && type == "Chinese"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Mexican").prop("checked") == false && type == "Mexican" || type =="Spanish" || type =="Tapas" || type =="Latin American"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Italian").prop("checked") == false && type == "Italian" || type =="Pizza"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Japanese").prop("checked") == false && type == "Japanese" || type =="Seafood"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Indian").prop("checked") == false && type == "Indian" || type =="Northern Indian"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Fusion").prop("checked") == false && type == "Fusion"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Cafe").prop("checked") == false && type == "Cafe" || type =="French"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Dessert").prop("checked") == false && type == "Dessert"){
+    specificResult.addClass("hide")
+  }
+    
+
+}
+
+function priceFilter(priceNum){
+   // Hides results options that do not match the price range selected by the user
+    var priceRange = localStorage.getItem("priceLevelSlider")
+    if(priceRange <= 10 && priceNum >= 1){
+      $(".result").addClass("hide")
+    } else if (priceRange <= 20 && priceNum >= 2){
+      $(".result").addClass("hide")
+    } else if (priceRange <= 30 && priceNum >= 3){
+      $(".result").addClass("hide")
+    } else if (priceRange <= 40 && priceNum >= 4){
+      $(".result").addClass("hide")
+    } else if (priceRange > 40 && priceNum >= 5){
+    }
+};
+
+
+// google autocomplete 
+// var input = document.querySelector(".searchbar-input");
+// var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
+
+// $(window).on("scroll", function(){
+//   var autocompleteAttr = $(".searchbar-input").attr("autocomplete");
+//   // console.log(autocompleteAttr);
+// })
