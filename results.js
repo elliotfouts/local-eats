@@ -77,6 +77,7 @@ function restaurantPrice(restaurantsArray) {
     newDiv.addClass("result");
     newDiv.attr("data-restInfo",JSON.stringify(restaurantsArray[i]))
 
+    console.log(restaurantsArray[i].restaurant)
     var restName = $("<h2>");
     restName.addClass("result-name");
     restName.text(restaurantsArray[i].restaurant.name);
@@ -196,6 +197,7 @@ saveButton.addEventListener("click", function() {
   var olDeliveryCheckbox = $(".online-delivery");
 
   localStorage.setItem("foodieLevelSlider", foodieLevelSliderInput);
+
   localStorage.setItem("priceLevelSlider", priceLevelSliderInput);
 
   if (openNowCheckBox.prop("checked")){
