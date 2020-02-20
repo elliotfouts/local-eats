@@ -26,6 +26,7 @@ input:focus {
   display: none;
 }
 
+
 /*==============================
 *            header            *
 ==============================*/
@@ -146,6 +147,8 @@ header {
   z-index: 0;
 }
 
+
+
 .result {
   padding: 1.5rem 2rem;
   margin-bottom: 1rem;
@@ -222,7 +225,7 @@ menu.open {
 .cuisine-container {
   display: flex;
   flex-direction: column;
-  height: 22%;
+  height: 30%;
 }
 
 .cuisine-option-container {
@@ -327,6 +330,7 @@ h3 {
 .save-button:hover {
   color: #a87932;
 }
+
 
 /*==================================
 *            animations            *

@@ -51,28 +51,40 @@
         <h2 class="menu-title">Cuisine</h2>
         <div class="cuisine-option-container">
           <div>
-            <input class="radio-button" type="checkbox" />
+            <input class="radio-button" type="checkbox" id="American"/>
             <h3 class="cuisine-option">American</h3>
           </div>
           <div>
-            <input class="radio-button" type="checkbox" />
+            <input class="radio-button" type="checkbox" id="Chinese"/>
             <h3 class="cuisine-option">Chinese</h3>
           </div>
           <div>
-            <input class="radio-button" type="checkbox" />
+            <input class="radio-button" type="checkbox" id="Mexican"/>
             <h3 class="cuisine-option">Mexican</h3>
           </div>
           <div>
-            <input class="radio-button" type="checkbox" />
+            <input class="radio-button" type="checkbox" id="Italian"/>
             <h3 class="cuisine-option">Italian</h3>
           </div>
           <div>
-            <input class="radio-button" type="checkbox" />
+            <input class="radio-button" type="checkbox" id="Japanese"/>
             <h3 class="cuisine-option">Japanese</h3>
           </div>
           <div>
-            <input class="radio-button" type="checkbox" />
-            <h3 class="cuisine-option">Dessert</h3>
+            <input class="radio-button" type="checkbox" id="Indian"/>
+            <h3 class="cuisine-option">Indian</h3>
+          </div>
+          <div>
+            <input class="radio-button" type="checkbox" id="Fusion"/>
+            <h3 class="cuisine-option">Fusion</h3>
+          </div>
+          <div>
+              <input class="radio-button" type="checkbox" id="Cafe"/>
+              <h3 class="cuisine-option">Cafe</h3>
+          </div>
+          <div>
+              <input class="radio-button" type="checkbox" id="Dessert"/>
+              <h3 class="cuisine-option">Dessert</h3>
           </div>
         </div>
       </div>
@@ -109,6 +121,19 @@
             checked="checked"
           />
           <h2 class="menu-title">Online Delivery Available</h2>
+        <h2 class="menu-title">Caliber</h2>
+        <input type="range" min="1" max="50" class="menu-slider menu-slider-foodie" />
+        <h3><i class="fas fa-star fa-1x filter-slider-element"></i></h3>
+      </div>
+      <div class="price-range-container">
+        <h2 class="menu-title">Estimated Expenses</h2>
+        <input type="range" min="1" max="50" class="menu-slider menu-slider-price" />
+        <h3 class="filter-slider-element">$</h3>
+      </div>
+      <div class="toggle-container">
+        <div class="online-delivery-container">
+          <input type="checkbox" class="online-delivery" value="1" checked="checked"/>
+          <h2 class="menu-title">Delivery Available</h2>
         </div>
       </div>
       <a href="#" class="save-button">Save</a>
@@ -118,6 +143,7 @@
       type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJPnC19aXMo2B3ng58WQBA1RsmUEonMN8&libraries=places"
     ></script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJPnC19aXMo2B3ng58WQBA1RsmUEonMN8&libraries=places"></script> -->
     <script src="results.js"></script>
   </body>
 </html>

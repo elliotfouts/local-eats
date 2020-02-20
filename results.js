@@ -53,6 +53,8 @@ function collectingCityID(city) {
   });
 }
 
+var restaurantsArray 
+
 function collectingEstablishmentID(entityID) {
   var queryURLestablishments =
     "https://developers.zomato.com/api/v2.1/search?entity_id=" +
@@ -67,8 +69,10 @@ function collectingEstablishmentID(entityID) {
     method: "GET"
   }).then(function(response) {
     restaurantPrice(response.restaurants);
+    restaurantsArray = response.restaurants
   });
 }
+
 
 function restaurantPrice(restaurantsArray) {
   for (var i = 0; i < restaurantsArray.length; i++) {
@@ -93,6 +97,9 @@ function restaurantPrice(restaurantsArray) {
       type = "unknown cuisine";
     }
     cuisine.text(type);
+
+    // Cuisine Filter Function 
+    cuisineFilter(type, newDiv)
 
     var price = $("<h3>");
     price.addClass("result-price");
@@ -122,6 +129,19 @@ function restaurantPrice(restaurantsArray) {
       $(".result").addClass("hide");
     } else if (priceRange > 40 && priceNum >= 5) {
     }
+
+    // Price Filter Function 
+    priceFilter(priceNum, newDiv)
+
+    // Caliber Filter Function 
+    var caliber = restaurantsArray[i].restaurant.user_rating.aggregate_rating
+
+    caliberSlider(caliber,newDiv)
+
+    // Delivery Available Filter Function 
+    var deliveryAvailable = restaurantsArray[i].restaurant.has_online_delivery
+
+    devileryAvailability (deliveryAvailable, newDiv)
 
     newDiv2.append(cuisine).append(price);
     $(".results-container").append(newDiv);
@@ -191,11 +211,9 @@ filterButton.addEventListener("click", function() {
 saveButton.addEventListener("click", function() {
   var foodieLevelSliderInput = $(".menu-slider-foodie").val();
   var priceLevelSliderInput = $(".menu-slider-price").val();
-  var openNowCheckBox = $(".open-now");
   var olDeliveryCheckbox = $(".online-delivery");
 
   localStorage.setItem("foodieLevelSlider", foodieLevelSliderInput);
-
   localStorage.setItem("priceLevelSlider", priceLevelSliderInput);
 
   if (openNowCheckBox.prop("checked")) {
@@ -206,11 +224,25 @@ saveButton.addEventListener("click", function() {
 
   if (olDeliveryCheckbox.prop("checked")) {
     localStorage.setItem("olDeliveryCheckBox", $(".online-delivery").val());
+  if (olDeliveryCheckbox.prop("checked")){
+    localStorage.setItem("olDeliveryCheckBox",$(".online-delivery").val());
   } else {
     localStorage.setItem("olDeliveryCheckBox", "0");
   }
 
+  var cuisineArray = $(".radio-button");
+  var isChecked = []
+  for (let i = 0; i < cuisineArray.length; i++) {
+      isChecked.push(cuisineArray.eq(i).prop("checked"))
+    }
+
+    localStorage.setItem("cuisineArray", JSON.stringify(isChecked));
+
   menuElement.classList.remove("open");
+
+    $(".results-container").empty()
+
+    restaurantPrice(restaurantsArray)
 });
 
 closeButton.addEventListener("click", function() {
@@ -235,3 +267,93 @@ window.addEventListener("load", function() {
   // console.log(loader);
   loader.className += " hidden"; // class "loader hidden"
 });
+function cuisineFilter(type, specificResult){
+  var cuisineArray = $(".radio-button");
+  var cuisineChoices = $(".cuisine-option");
+
+  for (let f = 0; f < type.length; f++) {
+    if (type[f] == ","){
+      type= type.substr(0,f);
+    }
+  }
+
+  if ( $("#American").prop("checked") == false && type == "American" || type =="Burger" || type =="Sandwich" || type =="Steak" || type =="Bar Food" || type =="New American" ||type == "Southern"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Chinese").prop("checked") == false && type == "Chinese"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Mexican").prop("checked") == false && type == "Mexican" || type =="Spanish" || type =="Tapas" || type =="Latin American"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Italian").prop("checked") == false && type == "Italian" || type =="Pizza"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Japanese").prop("checked") == false && type == "Japanese" || type =="Seafood"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Indian").prop("checked") == false && type == "Indian" || type =="Northern Indian"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Fusion").prop("checked") == false && type == "Fusion"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Cafe").prop("checked") == false && type == "Cafe" || type =="French"){
+    specificResult.addClass("hide")
+  }
+  if ( $("#Dessert").prop("checked") == false && type == "Dessert"){
+    specificResult.addClass("hide")
+  }
+    
+
+}
+
+function priceFilter(priceNum, specificResult){
+   // Hides results options that do not match the price range selected by the user
+    var priceRange = localStorage.getItem("priceLevelSlider")
+    if(priceRange <= 10 && priceNum >= 1){
+      specificResult.addClass("hide")
+    } else if (priceRange <= 20 && priceNum >= 2){
+      specificResult.addClass("hide")
+    } else if (priceRange <= 30 && priceNum >= 3){
+      specificResult.addClass("hide")
+    } else if (priceRange <= 40 && priceNum >= 4){
+      specificResult.addClass("hide")
+    } else if (priceRange >= 41 && priceNum <= 5){
+      specificResult.removeClass("hide")
+    }
+};
+
+function caliberSlider(caliber,specificResult){
+  var caliberValueSlider = localStorage.getItem("foodieLevelSlider")
+  if(caliberValueSlider <=10 && caliber >= 1) {
+    specificResult.addClass("hide")
+  } else if (caliberValueSlider <= 20 && caliber >= 2){
+    specificResult.addClass("hide")
+  } else if (caliberValueSlider <= 30 && caliber >= 3){
+    specificResult.addClass("hide")
+  } else if (caliberValueSlider <= 40 && caliber >= 4){
+    specificResult.addClass("hide")
+  } else if (caliberValueSlider >= 41 && caliber <= 5){
+    specificResult.removeClass("hide")
+  }
+}
+
+function devileryAvailability (deliveryAvailable, specificResult){
+  var olDeliveryIsChecked = localStorage.getItem("olDeliveryCheckBox")
+  // if its checked
+  if (olDeliveryIsChecked == 1 && deliveryAvailable == 1){
+    specificResult.addClass("hide")
+  } else if (olDeliveryIsChecked == 0 && deliveryAvailable == 0){
+    // Maybe the order of things are interfering 
+  }
+}
+
+// google autocomplete 
+// var input = document.querySelector(".searchbar-input");
+// var autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
+
+// $(window).on("scroll", function(){
+//   var autocompleteAttr = $(".searchbar-input").attr("autocomplete");
+//   // console.log(autocompleteAttr);
+// })
