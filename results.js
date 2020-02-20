@@ -118,17 +118,17 @@ function restaurantPrice(restaurantsArray) {
     }
 
     // Price Filter Function 
-    priceFilter(priceNum)
+    priceFilter(priceNum, newDiv)
 
     // Caliber Filter Function 
     var caliber = restaurantsArray[i].restaurant.user_rating.aggregate_rating
 
-    // caliberSlider(caliber,newDiv)
+    caliberSlider(caliber,newDiv)
 
     // Delivery Available Filter Function 
     var deliveryAvailable = restaurantsArray[i].restaurant.has_online_delivery
 
-    // devileryAvailability (deliveryAvailable, specificResult)
+    devileryAvailability (deliveryAvailable, newDiv)
 
     newDiv2.append(cuisine).append(price);
     $(".results-container").append(newDiv);
@@ -270,19 +270,19 @@ function cuisineFilter(type, specificResult){
 
 }
 
-function priceFilter(priceNum){
+function priceFilter(priceNum, specificResult){
    // Hides results options that do not match the price range selected by the user
     var priceRange = localStorage.getItem("priceLevelSlider")
     if(priceRange <= 10 && priceNum >= 1){
-      $(".result").addClass("hide")
+      specificResult.addClass("hide")
     } else if (priceRange <= 20 && priceNum >= 2){
-      $(".result").addClass("hide")
+      specificResult.addClass("hide")
     } else if (priceRange <= 30 && priceNum >= 3){
-      $(".result").addClass("hide")
+      specificResult.addClass("hide")
     } else if (priceRange <= 40 && priceNum >= 4){
-      $(".result").addClass("hide")
+      specificResult.addClass("hide")
     } else if (priceRange >= 41 && priceNum <= 5){
-      $(".result").removeClass("hide")
+      specificResult.removeClass("hide")
     }
 };
 
