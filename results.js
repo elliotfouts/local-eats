@@ -1,12 +1,12 @@
 // entrance animation
 animationDelay = 100;
-setTimeout(function(){
-  $("#overlay").addClass("after")
-  $(".searchbar").addClass("appear")
-  $(".filter-button").addClass("appear")
-  $(".img-banner").addClass("grow")
-  $(".result-title").addClass("appear")
-}, animationDelay)
+setTimeout(function() {
+  $("#overlay").addClass("after");
+  $(".searchbar").addClass("appear");
+  $(".filter-button").addClass("appear");
+  $(".img-banner").addClass("grow");
+  $(".result-title").addClass("appear");
+}, animationDelay);
 
 // grabs initial search result from local storage
 function initResults() {
@@ -15,25 +15,24 @@ function initResults() {
 }
 initResults();
 
-// grabs new search value 
-$(".result-search-button").click(function(){
+// grabs new search value
+$(".result-search-button").click(function() {
   $(".results-container").empty();
   var city = $(".searchbar-input").val();
-  localStorage.setItem("city", city)
+  localStorage.setItem("city", city);
   loadResults(city);
 });
 
-// actually loads the search results 
+// actually loads the search results
 function loadResults(city) {
   for (var i = 0; i < city.length; i++) {
     if (city[i] == ",") {
       city = city.substr(0, i);
     }
   }
-  $(".result-city-name").text(city)
-  collectingCityID(city)
+  $(".result-city-name").text(city);
+  collectingCityID(city);
 }
-
 
 function collectingCityID(city) {
   var queryURL =
@@ -79,8 +78,9 @@ function restaurantPrice(restaurantsArray) {
   for (var i = 0; i < restaurantsArray.length; i++) {
     var newDiv = $("<div>");
     newDiv.addClass("result");
-    newDiv.attr("data-restInfo",JSON.stringify(restaurantsArray[i]))
+    newDiv.attr("data-restInfo", JSON.stringify(restaurantsArray[i]));
 
+    console.log(restaurantsArray[i].restaurant);
     var restName = $("<h2>");
     restName.addClass("result-name");
     restName.text(restaurantsArray[i].restaurant.name);
@@ -103,18 +103,31 @@ function restaurantPrice(restaurantsArray) {
 
     var price = $("<h3>");
     price.addClass("result-price");
-    var priceNum = restaurantsArray[i].restaurant.price_range
-    
-    if (priceNum <=1){
+    var priceNum = restaurantsArray[i].restaurant.price_range;
+
+    if (priceNum <= 1) {
       price.text("$");
-    } else if (priceNum <=2){
+    } else if (priceNum <= 2) {
       price.text("$$");
-    } else if (priceNum <=3){
+    } else if (priceNum <= 3) {
       price.text("$$$");
-    } else if (priceNum <=4){
+    } else if (priceNum <= 4) {
       price.text("$$$$");
-    } else if (priceNum >=5){
+    } else if (priceNum >= 5) {
       price.text("$$$$$");
+    }
+
+    // Hides results options that do not match the price range selected by the user
+    var priceRange = localStorage.getItem("priceLevelSlider");
+    if (priceRange <= 10 && priceNum >= 1) {
+      $(".result").addClass("hide");
+    } else if (priceRange <= 20 && priceNum >= 2) {
+      $(".result").addClass("hide");
+    } else if (priceRange <= 30 && priceNum >= 3) {
+      $(".result").addClass("hide");
+    } else if (priceRange <= 40 && priceNum >= 4) {
+      $(".result").addClass("hide");
+    } else if (priceRange > 40 && priceNum >= 5) {
     }
 
     // Price Filter Function 
@@ -134,41 +147,41 @@ function restaurantPrice(restaurantsArray) {
     $(".results-container").append(newDiv);
   }
   var i = 0;
-  var animationInterval = setInterval( function() {
+  var animationInterval = setInterval(function() {
+    $(".result")
+      .eq(i)
+      .addClass("appear");
 
-    $(".result").eq(i).addClass("appear");
-    
     if (i == restaurantsArray.length) {
-      clearInterval(animationInterval)
+      clearInterval(animationInterval);
     }
 
     i++;
   }, 200);
 }
 
-
-$(document).on("click",".result",function(){
-  var resultArr = $(".result")
+$(document).on("click", ".result", function() {
+  var resultArr = $(".result");
   var restInfoArr = [];
   var photoUrlArr = [];
 
-  var restInfo = $(this).attr("data-restInfo")
-  localStorage.setItem("restInfo", restInfo)
+  var restInfo = $(this).attr("data-restInfo");
+  localStorage.setItem("restInfo", restInfo);
 
   for (var i = 0; i < 4; i++) {
     var restInfoExtra = JSON.parse(resultArr.eq(i).attr("data-restInfo"));
     var photoUrl = restInfoExtra.restaurant.featured_image;
     restInfoArr.push(restInfoExtra);
-    photoUrlArr.push(photoUrl)
-    console.log(restInfoArr)
+    photoUrlArr.push(photoUrl);
+    console.log(restInfoArr);
   }
   localStorage.setItem("restInfoAdditional", JSON.stringify(restInfoArr));
   localStorage.setItem("photoUrlArr", JSON.stringify(photoUrlArr));
-  $("#overlay").removeClass("after")
-  setTimeout(function(){
-      location.replace("restaurant.html");
-  }, 700)
-})
+  $("#overlay").removeClass("after");
+  setTimeout(function() {
+    location.replace("restaurant.html");
+  }, 700);
+});
 
 $(".fa-search").on("click", function(event) {
   event.preventDefault();
@@ -184,18 +197,17 @@ $(".fa-search").on("click", function(event) {
   collectingCityID(city);
 });
 
-
-// toggles menu open and closed 
+// toggles menu open and closed
 var menuElement = document.querySelector("menu");
 var filterButton = document.querySelector(".filter-button");
 var closeButton = document.querySelector(".close-button");
-var saveButton = document.querySelector(".save-button")
+var saveButton = document.querySelector(".save-button");
 
 filterButton.addEventListener("click", function() {
   menuElement.classList.add("open");
 });
 
-// Saved Filtered Options 
+// Saved Filtered Options
 saveButton.addEventListener("click", function() {
   var foodieLevelSliderInput = $(".menu-slider-foodie").val();
   var priceLevelSliderInput = $(".menu-slider-price").val();
@@ -204,10 +216,18 @@ saveButton.addEventListener("click", function() {
   localStorage.setItem("foodieLevelSlider", foodieLevelSliderInput);
   localStorage.setItem("priceLevelSlider", priceLevelSliderInput);
 
+  if (openNowCheckBox.prop("checked")) {
+    localStorage.setItem("openNowCheckBox", openNowCheckBox.val());
+  } else {
+    localStorage.setItem("openNowCheckBox", "0");
+  }
+
+  if (olDeliveryCheckbox.prop("checked")) {
+    localStorage.setItem("olDeliveryCheckBox", $(".online-delivery").val());
   if (olDeliveryCheckbox.prop("checked")){
     localStorage.setItem("olDeliveryCheckBox",$(".online-delivery").val());
   } else {
-    localStorage.setItem("olDeliveryCheckBox","0")
+    localStorage.setItem("olDeliveryCheckBox", "0");
   }
 
   var cuisineArray = $(".radio-button");
@@ -229,6 +249,24 @@ closeButton.addEventListener("click", function() {
   menuElement.classList.remove("open");
 });
 
+// google autocomplete
+var input = document.querySelector(".searchbar-input");
+var autocomplete = new google.maps.places.Autocomplete(input, {
+  types: ["(cities)"]
+});
+
+$(window).on("scroll", function() {
+  var autocompleteAttr = $(".searchbar-input").attr("autocomplete");
+  // console.log(autocompleteAttr);
+});
+
+// loader animation
+
+window.addEventListener("load", function() {
+  const loader = document.querySelector(".loader");
+  // console.log(loader);
+  loader.className += " hidden"; // class "loader hidden"
+});
 function cuisineFilter(type, specificResult){
   var cuisineArray = $(".radio-button");
   var cuisineChoices = $(".cuisine-option");
