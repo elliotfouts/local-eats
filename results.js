@@ -74,7 +74,6 @@ function collectingEstablishmentID(entityID) {
   });
 }
 
-console.log(restaurantsArray)
 
 function restaurantPrice(restaurantsArray) {
   for (var i = 0; i < restaurantsArray.length; i++) {
@@ -99,6 +98,7 @@ function restaurantPrice(restaurantsArray) {
     }
     cuisine.text(type);
 
+    // Cuisine Filter Function 
     cuisineFilter(type, newDiv)
 
     var price = $("<h3>");
@@ -117,7 +117,18 @@ function restaurantPrice(restaurantsArray) {
       price.text("$$$$$");
     }
 
+    // Price Filter Function 
     priceFilter(priceNum)
+
+    // Caliber Filter Function 
+    var caliber = restaurantsArray[i].restaurant.user_rating.aggregate_rating
+
+    // caliberSlider(caliber,newDiv)
+
+    // Delivery Available Filter Function 
+    var deliveryAvailable = restaurantsArray[i].restaurant.has_online_delivery
+
+    // devileryAvailability (deliveryAvailable, specificResult)
 
     newDiv2.append(cuisine).append(price);
     $(".results-container").append(newDiv);
@@ -270,10 +281,35 @@ function priceFilter(priceNum){
       $(".result").addClass("hide")
     } else if (priceRange <= 40 && priceNum >= 4){
       $(".result").addClass("hide")
-    } else if (priceRange > 40 && priceNum >= 5){
+    } else if (priceRange >= 41 && priceNum <= 5){
+      $(".result").removeClass("hide")
     }
 };
 
+function caliberSlider(caliber,specificResult){
+  var caliberValueSlider = localStorage.getItem("foodieLevelSlider")
+  if(caliberValueSlider <=10 && caliber >= 1) {
+    specificResult.addClass("hide")
+  } else if (caliberValueSlider <= 20 && caliber >= 2){
+    specificResult.addClass("hide")
+  } else if (caliberValueSlider <= 30 && caliber >= 3){
+    specificResult.addClass("hide")
+  } else if (caliberValueSlider <= 40 && caliber >= 4){
+    specificResult.addClass("hide")
+  } else if (caliberValueSlider >= 41 && caliber <= 5){
+    specificResult.removeClass("hide")
+  }
+}
+
+function devileryAvailability (deliveryAvailable, specificResult){
+  var olDeliveryIsChecked = localStorage.getItem("olDeliveryCheckBox")
+  // if its checked
+  if (olDeliveryIsChecked == 1 && deliveryAvailable == 1){
+    specificResult.addClass("hide")
+  } else if (olDeliveryIsChecked == 0 && deliveryAvailable == 0){
+    // Maybe the order of things are interfering 
+  }
+}
 
 // google autocomplete 
 // var input = document.querySelector(".searchbar-input");
