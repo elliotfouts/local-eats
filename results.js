@@ -34,7 +34,6 @@ function loadResults(city) {
   collectingCityID(city)
 }
 
-
 function collectingCityID(city) {
   var queryURL =
     "https://developers.zomato.com/api/v2.1/locations?query=" + city;
@@ -319,3 +318,10 @@ function devileryAvailability (deliveryAvailable, specificResult){
 //   var autocompleteAttr = $(".searchbar-input").attr("autocomplete");
 //   // console.log(autocompleteAttr);
 // })
+
+// loading animation
+window.addEventListener("load", function() {
+  const loader = document.querySelector(".loader");
+  // console.log(loader);
+  loader.className += " hidden"; // class "loader hidden"
+});
