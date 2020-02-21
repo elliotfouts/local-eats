@@ -16,9 +16,8 @@
   </head>
 
   <body>
-    <div class="loader">
-      <img src="imgs/loading.gif" alt="Loading..." />
-    </div>
+
+    
 
     <div id="overlay"></div>
     <header>
@@ -40,7 +39,11 @@
         </h2>
       </div>
 
-      <section class="results-container"></section>
+      <div class="loader hidden">
+          <img src="imgs/loading.gif" alt="Loading..." />
+      </div>
+      <section class="results-container">
+      </section>
     </div>
 
     <menu>
@@ -89,60 +92,35 @@
         </div>
       </div>
       <div class="foodie-container">
-        <h2 class="menu-title">Foodie Level</h2>
+        <h2 class="menu-title">Caliber</h2>
         <input
           type="range"
           min="1"
           max="50"
+          value="50"
           class="menu-slider menu-slider-foodie"
         />
         <h3><i class="fas fa-star fa-1x filter-slider-element"></i></h3>
       </div>
       <div class="price-range-container">
-        <h2 class="menu-title">Price Range</h2>
+        <h2 class="menu-title">Estimated Expenses</h2>
         <input
           type="range"
           min="1"
           max="50"
+          value="50"
           class="menu-slider menu-slider-price"
         />
         <h3 class="filter-slider-element">$</h3>
       </div>
       <div class="toggle-container">
-        <div class="open-now-container">
-          <input type="checkbox" class="open-now" value="1" checked="checked" />
-          <h2 class="menu-title">Open Now</h2>
-        </div>
         <div class="online-delivery-container">
-          <input
-            type="checkbox"
-            class="online-delivery"
-            value="1"
-            checked="checked"
-          />
-          <h2 class="menu-title">Online Delivery Available</h2>
-        <h2 class="menu-title">Caliber</h2>
-        <input type="range" min="1" max="50" class="menu-slider menu-slider-foodie" />
-        <h3><i class="fas fa-star fa-1x filter-slider-element"></i></h3>
-      </div>
-      <div class="price-range-container">
-        <h2 class="menu-title">Estimated Expenses</h2>
-        <input type="range" min="1" max="50" class="menu-slider menu-slider-price" />
-        <h3 class="filter-slider-element">$</h3>
-      </div>
-      <div class="toggle-container">
-        <div class="online-delivery-container">
-          <input type="checkbox" class="online-delivery" value="1" checked="checked"/>
+          <input type="checkbox" class="online-delivery" checked="checked"/>
           <h2 class="menu-title">Delivery Available</h2>
         </div>
       </div>
       <a href="#" class="save-button">Save</a>
     </menu>
-
-    <script
-      type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJPnC19aXMo2B3ng58WQBA1RsmUEonMN8&libraries=places"
-    ></script>
     <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJPnC19aXMo2B3ng58WQBA1RsmUEonMN8&libraries=places"></script> -->
     <script src="results.js"></script>
   </body>

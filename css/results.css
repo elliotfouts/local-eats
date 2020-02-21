@@ -120,6 +120,7 @@ header {
 
 .content-container {
   padding: 3rem;
+  position: relative;
 }
 .result-title-container {
   margin-bottom: 3rem;
@@ -339,7 +340,7 @@ h3 {
   top: 0;
   left: 0;
   background: #444;
-  z-index: 50;
+  z-index: 100;
   transition: all 700ms;
 }
 
@@ -361,22 +362,21 @@ h3 {
 ==================================*/
 
 .loader {
-  position: fixed;
-  z-index: 99;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  z-index: 99;
   background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 80vh;
 }
 .loader > img {
   width: 500px;
 }
 .loader.hidden {
-  animation: fadeOut 3s;
+  animation: fadeOut 500ms;
   animation-fill-mode: forwards;
 }
 @keyframes fadeOut {
@@ -384,4 +384,5 @@ h3 {
     opacity: 0;
     visibility: hidden;
   }
+  
 }
