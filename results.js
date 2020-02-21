@@ -147,17 +147,42 @@ $(document).on("click", ".result", function() {
     location.replace("restaurant.html");
   }, 700);
 });
-$(".fa-search").on("click", function(event) {
+
+function handleSearch(event){
   event.preventDefault();
+
   var city = $(".searchbar-input").val();
-  for (var i = 0; i < city.length; i++) {
+
+for (var i = 0; i < city.length; i++) {
     if (city[i] == ",") {
       city = city.substr(0, i);
     }
   }
   $(".result-city-name").text(city);
   collectingCityID(city);
+}
+
+$(".fa-search").on("click", handleSearch);
+
+$("#search").keydown(function(event) {
+  console.log("Event:" + event);
+  if (event.keyCode === 13) {
+    $("#magnify").click();
+  }
 });
+
+// $(".fa-search").on("click", function(event) {
+//   event.preventDefault();
+//   var city = $(".searchbar-input").val();
+//   for (var i = 0; i < city.length; i++) {
+//     if (city[i] == ",") {
+//       city = city.substr(0, i);
+//     }
+//   }
+//   $(".result-city-name").text(city);
+//   collectingCityID(city);
+// });
+
 // toggles menu open and closed
 var menuElement = document.querySelector("menu");
 var filterButton = document.querySelector(".filter-button");
