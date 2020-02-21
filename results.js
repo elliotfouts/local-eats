@@ -243,6 +243,7 @@ saveButton.addEventListener("click", function() {
     $(".results-container").empty()
 
     restaurantPrice(restaurantsArray)
+  }
 });
 
 closeButton.addEventListener("click", function() {
@@ -357,3 +358,10 @@ function devileryAvailability (deliveryAvailable, specificResult){
 //   var autocompleteAttr = $(".searchbar-input").attr("autocomplete");
 //   // console.log(autocompleteAttr);
 // })
+
+// loading animation
+window.addEventListener("load", function() {
+  const loader = document.querySelector(".loader");
+  // console.log(loader);
+  loader.className += " hidden"; // class "loader hidden"
+});
