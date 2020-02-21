@@ -9,6 +9,22 @@ setTimeout(function() {
 }, animationDelay);
 // grabs initial search result from local storage
 function initResults() {
+  var foodieLevelSliderInput = $(".menu-slider-foodie").val();
+  var priceLevelSliderInput = $(".menu-slider-price").val();
+  var olDeliveryCheckbox = $(".online-delivery");
+  localStorage.setItem("foodieLevelSlider", foodieLevelSliderInput);
+  localStorage.setItem("priceLevelSlider", priceLevelSliderInput);
+  if (olDeliveryCheckbox.prop("checked")) {
+    localStorage.setItem("olDeliveryCheckBox", "0");
+  } else {
+    localStorage.setItem("olDeliveryCheckBox", "1");
+  }
+  var cuisineArray = $(".radio-button");
+  var isChecked = [];
+  for (let i = 0; i < cuisineArray.length; i++) {
+    isChecked.push(cuisineArray.eq(i).prop("checked"));
+  }
+  localStorage.setItem("cuisineArray", JSON.stringify(isChecked));
   var city = localStorage.getItem("city");
   loadResults(city);
 }
@@ -42,6 +58,7 @@ function collectingCityID(city) {
     },
     method: "GET"
   }).then(function(response) {
+    console.log("step1")
     var entityID = response.location_suggestions[0].entity_id;
     // (/cities) response.location_suggestions[array with different stuff inside relating to the city (can have multiple searches, would need to edit url)].entity_id
     // The entity_id we collect in this call will need to be used to make a different ajax call that will provide us with restaurant info
@@ -62,6 +79,7 @@ function collectingEstablishmentID(entityID) {
     },
     method: "GET"
   }).then(function(response) {
+    console.log("step2")
     restaurantPrice(response.restaurants);
     restaurantsArray = response.restaurants;
   });
@@ -69,6 +87,7 @@ function collectingEstablishmentID(entityID) {
 function restaurantPrice(restaurantsArray) {
   $(".loader").addClass("hidden");
   for (var i = 0; i < restaurantsArray.length; i++) {
+    debugger;
     var newDiv = $("<div>");
     newDiv.addClass("result");
     newDiv.attr("data-restInfo", JSON.stringify(restaurantsArray[i]));
@@ -85,6 +104,7 @@ function restaurantPrice(restaurantsArray) {
     if (type == "") {
       type = "unknown cuisine";
     }
+    console.log("step3")
     cuisine.text(type);
     // Cuisine Filter Function
     cuisineFilter(type, newDiv);
@@ -103,6 +123,7 @@ function restaurantPrice(restaurantsArray) {
     } else if (priceNum >= 5) {
       price.text("$$$$$");
     }
+
     // Price Filter Function
     priceFilter(priceNum, newDiv);
     // Caliber Filter Function
@@ -138,7 +159,6 @@ $(document).on("click", ".result", function() {
     var photoUrl = restInfoExtra.restaurant.featured_image;
     restInfoArr.push(restInfoExtra);
     photoUrlArr.push(photoUrl);
-    console.log(restInfoArr);
   }
   localStorage.setItem("restInfoAdditional", JSON.stringify(restInfoArr));
   localStorage.setItem("photoUrlArr", JSON.stringify(photoUrlArr));
@@ -320,11 +340,8 @@ function caliberSlider(caliber, specificResult) {
 function devileryAvailability(deliveryAvailable, specificResult) {
   var olDeliveryIsChecked = localStorage.getItem("olDeliveryCheckBox");
   // if its checked
-  console.log(olDeliveryIsChecked)
-  console.log(deliveryAvailable)
   if (olDeliveryIsChecked == 0 && deliveryAvailable == 0) {
     specificResult.removeClass("hide");
-    console.log("h")
     // not checked 
   } else if (olDeliveryIsChecked == 1 && deliveryAvailable == 0) {
     specificResult.addClass("hide");
