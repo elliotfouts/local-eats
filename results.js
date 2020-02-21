@@ -125,12 +125,14 @@ function restaurantPrice(restaurantsArray) {
 
     // Price Filter Function
     priceFilter(priceNum, newDiv);
+
     // Caliber Filter Function
     var caliber = restaurantsArray[i].restaurant.user_rating.aggregate_rating;
-    // caliberSlider(caliber, newDiv);
+    caliberSlider(caliber, newDiv);
+
     // Delivery Available Filter Function
     var deliveryAvailable = restaurantsArray[i].restaurant.has_online_delivery;
-    // devileryAvailability(deliveryAvailable, newDiv);
+    devileryAvailability(deliveryAvailable, newDiv);
 
     newDiv2.append(cuisine).append(price);
     $(".results-container").append(newDiv);
@@ -207,6 +209,7 @@ var menuElement = document.querySelector("menu");
 var filterButton = document.querySelector(".filter-button");
 var closeButton = document.querySelector(".close-button");
 var saveButton = document.querySelector(".save-button");
+
 filterButton.addEventListener("click", function() {
   menuElement.classList.add("open");
 });
@@ -232,14 +235,6 @@ saveButton.addEventListener("click", function() {
 
   $(".results-container").empty();
   restaurantPrice(restaurantsArray);
-
-  $(".results-container").empty();
-  restaurantPrice(restaurantsArray);
-
-
-    $(".results-container").empty()
-
-    restaurantPrice(restaurantsArray)
   
 });
 
@@ -344,7 +339,7 @@ function caliberSlider(caliber, specificResult) {
 }
 function devileryAvailability(deliveryAvailable, specificResult) {
   if(specificResult[0].classList.contains("hide")) return 
-  
+
   var olDeliveryIsChecked = localStorage.getItem("olDeliveryCheckBox");
   // if its checked
   if (olDeliveryIsChecked == 0 && deliveryAvailable == 0) {
