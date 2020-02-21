@@ -33,6 +33,7 @@ function loadResults(city) {
 function collectingCityID(city) {
   var queryURL =
     "https://developers.zomato.com/api/v2.1/locations?query=" + city;
+  $(".loader").removeClass("hidden");
   $.ajax({
     url: queryURL,
     headers: {
@@ -66,6 +67,7 @@ function collectingEstablishmentID(entityID) {
   });
 }
 function restaurantPrice(restaurantsArray) {
+  $(".loader").addClass("hidden");
   for (var i = 0; i < restaurantsArray.length; i++) {
     var newDiv = $("<div>");
     newDiv.addClass("result");
@@ -109,6 +111,7 @@ function restaurantPrice(restaurantsArray) {
     // Delivery Available Filter Function
     var deliveryAvailable = restaurantsArray[i].restaurant.has_online_delivery;
     devileryAvailability(deliveryAvailable, newDiv);
+
     newDiv2.append(cuisine).append(price);
     $(".results-container").append(newDiv);
   }
@@ -171,9 +174,9 @@ saveButton.addEventListener("click", function() {
   localStorage.setItem("foodieLevelSlider", foodieLevelSliderInput);
   localStorage.setItem("priceLevelSlider", priceLevelSliderInput);
   if (olDeliveryCheckbox.prop("checked")) {
-    localStorage.setItem("olDeliveryCheckBox", $(".online-delivery").val());
-  } else {
     localStorage.setItem("olDeliveryCheckBox", "0");
+  } else {
+    localStorage.setItem("olDeliveryCheckBox", "1");
   }
   var cuisineArray = $(".radio-button");
   var isChecked = [];
@@ -243,7 +246,7 @@ function cuisineFilter(type, specificResult) {
   }
   if (
     ($("#Indian").prop("checked") == false && type == "Indian") ||
-    type == "Northern Indian"
+    type == "Northern Indian" || type == "North Indian"
   ) {
     specificResult.addClass("hide");
   }
@@ -292,10 +295,14 @@ function caliberSlider(caliber, specificResult) {
 function devileryAvailability(deliveryAvailable, specificResult) {
   var olDeliveryIsChecked = localStorage.getItem("olDeliveryCheckBox");
   // if its checked
-  if (olDeliveryIsChecked == 1 && deliveryAvailable == 1) {
+  console.log(olDeliveryIsChecked)
+  console.log(deliveryAvailable)
+  if (olDeliveryIsChecked == 0 && deliveryAvailable == 0) {
+    specificResult.removeClass("hide");
+    console.log("h")
+    // not checked 
+  } else if (olDeliveryIsChecked == 1 && deliveryAvailable == 0) {
     specificResult.addClass("hide");
-  } else if (olDeliveryIsChecked == 0 && deliveryAvailable == 0) {
-    // Maybe the order of things are interfering
   }
 }
 // google autocomplete
@@ -307,8 +314,8 @@ function devileryAvailability(deliveryAvailable, specificResult) {
 // })
 
 // loading animation
-window.addEventListener("load", function() {
-  const loader = document.querySelector(".loader");
+// window.addEventListener("load", function() {
+//   const loader = document.querySelector(".loader");
   // console.log(loader);
-  loader.className += " hidden"; // class "loader hidden"
-});
+//   loader.className += " hidden"; // class "loader hidden"
+// });
