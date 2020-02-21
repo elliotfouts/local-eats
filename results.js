@@ -184,6 +184,12 @@ saveButton.addEventListener("click", function() {
   menuElement.classList.remove("open");
   $(".results-container").empty();
   restaurantPrice(restaurantsArray);
+
+    $(".results-container").empty()
+
+    restaurantPrice(restaurantsArray)
+  }
+
 });
 closeButton.addEventListener("click", function() {
   menuElement.classList.remove("open");
@@ -296,7 +302,6 @@ function devileryAvailability(deliveryAvailable, specificResult) {
 // })
 
 // loading animation
-
 window.addEventListener("load", function() {
   const loader = document.querySelector(".loader");
   // console.log(loader);
