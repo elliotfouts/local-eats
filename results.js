@@ -87,7 +87,6 @@ function collectingEstablishmentID(entityID) {
 function restaurantPrice(restaurantsArray) {
   $(".loader").addClass("hidden");
   for (var i = 0; i < restaurantsArray.length; i++) {
-    debugger;
     var newDiv = $("<div>");
     newDiv.addClass("result");
     newDiv.attr("data-restInfo", JSON.stringify(restaurantsArray[i]));
@@ -128,10 +127,10 @@ function restaurantPrice(restaurantsArray) {
     priceFilter(priceNum, newDiv);
     // Caliber Filter Function
     var caliber = restaurantsArray[i].restaurant.user_rating.aggregate_rating;
-    caliberSlider(caliber, newDiv);
+    // caliberSlider(caliber, newDiv);
     // Delivery Available Filter Function
     var deliveryAvailable = restaurantsArray[i].restaurant.has_online_delivery;
-    devileryAvailability(deliveryAvailable, newDiv);
+    // devileryAvailability(deliveryAvailable, newDiv);
 
     newDiv2.append(cuisine).append(price);
     $(".results-container").append(newDiv);
@@ -248,6 +247,7 @@ closeButton.addEventListener("click", function() {
   menuElement.classList.remove("open");
 });
 function cuisineFilter(type, specificResult) {
+  if(specificResult[0].classList.contains("hide")) return 
   var cuisineArray = $(".radio-button");
   var cuisineChoices = $(".cuisine-option");
   for (let f = 0; f < type.length; f++) {
@@ -309,6 +309,9 @@ function cuisineFilter(type, specificResult) {
   }
 }
 function priceFilter(priceNum, specificResult) {
+
+  if(specificResult[0].classList.contains("hide")) return 
+
   // Hides results options that do not match the price range selected by the user
   var priceRange = localStorage.getItem("priceLevelSlider");
   if (priceRange <= 10 && priceNum >= 1) {
@@ -324,6 +327,8 @@ function priceFilter(priceNum, specificResult) {
   }
 }
 function caliberSlider(caliber, specificResult) {
+  if(specificResult[0].classList.contains("hide")) return 
+
   var caliberValueSlider = localStorage.getItem("foodieLevelSlider");
   if (caliberValueSlider <= 10 && caliber >= 1) {
     specificResult.addClass("hide");
@@ -338,6 +343,8 @@ function caliberSlider(caliber, specificResult) {
   }
 }
 function devileryAvailability(deliveryAvailable, specificResult) {
+  if(specificResult[0].classList.contains("hide")) return 
+  
   var olDeliveryIsChecked = localStorage.getItem("olDeliveryCheckBox");
   // if its checked
   if (olDeliveryIsChecked == 0 && deliveryAvailable == 0) {
