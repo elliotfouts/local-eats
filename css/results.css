@@ -357,7 +357,7 @@ h3 {
 }
 
 /*==================================
-*            loader          *
+*            loader           *
 ==================================*/
 
 .loader {
@@ -372,16 +372,13 @@ h3 {
   justify-content: center;
   align-items: center;
 }
-
 .loader > img {
   width: 500px;
 }
-
 .loader.hidden {
-  animation: fadeOut 1s;
+  animation: fadeOut 3s;
   animation-fill-mode: forwards;
 }
-
 @keyframes fadeOut {
   100% {
     opacity: 0;

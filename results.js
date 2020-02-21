@@ -182,8 +182,16 @@ saveButton.addEventListener("click", function() {
   }
   localStorage.setItem("cuisineArray", JSON.stringify(isChecked));
   menuElement.classList.remove("open");
+<<<<<<< HEAD
   $(".results-container").empty();
   restaurantPrice(restaurantsArray);
+=======
+
+    $(".results-container").empty()
+
+    restaurantPrice(restaurantsArray)
+  }
+>>>>>>> 9ba9011089f0bd096842aaaf77bab9b3fd5c0b3b
 });
 closeButton.addEventListener("click", function() {
   menuElement.classList.remove("open");
@@ -296,7 +304,10 @@ function devileryAvailability(deliveryAvailable, specificResult) {
 // })
 
 // loading animation
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9ba9011089f0bd096842aaaf77bab9b3fd5c0b3b
 window.addEventListener("load", function() {
   const loader = document.querySelector(".loader");
   // console.log(loader);
