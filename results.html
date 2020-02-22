@@ -93,26 +93,16 @@
       </div>
       <div class="foodie-container">
         <h2 class="menu-title">Caliber</h2>
-        <input
-          type="range"
-          min="1"
-          max="50"
-          value="50"
-          class="menu-slider menu-slider-foodie"
-        />
-        <h3><i class="fas fa-star fa-1x filter-slider-element"></i></h3>
+        <input type="range" min="1" max="50" value="50" class="menu-slider menu-slider-foodie" id="starLevel" oninput ="showStar()"/>
+        <h3><span id="starLevelOutput"></span></h3>
       </div>
+
       <div class="price-range-container">
         <h2 class="menu-title">Estimated Expenses</h2>
-        <input
-          type="range"
-          min="1"
-          max="50"
-          value="50"
-          class="menu-slider menu-slider-price"
-        />
-        <h3 class="filter-slider-element price-slider">$</h3>
+        <input type="range" min="1" max="50" value="50" class="menu-slider menu-slider-price" id="priveLevelSlider" oninput ="showPrice()"/>
+        <h3 class="filter-slider-element price-slider" id="priceLevelSlideOutput"></h3>
       </div>
+
       <div class="toggle-container">
         <div class="online-delivery-container">
           <input type="checkbox" class="online-delivery" checked="checked"/>
