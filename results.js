@@ -58,7 +58,6 @@ function collectingCityID(city) {
     },
     method: "GET"
   }).then(function(response) {
-    console.log("step1")
     var entityID = response.location_suggestions[0].entity_id;
     // (/cities) response.location_suggestions[array with different stuff inside relating to the city (can have multiple searches, would need to edit url)].entity_id
     // The entity_id we collect in this call will need to be used to make a different ajax call that will provide us with restaurant info
@@ -79,7 +78,6 @@ function collectingEstablishmentID(entityID) {
     },
     method: "GET"
   }).then(function(response) {
-    console.log("step2")
     restaurantPrice(response.restaurants);
     restaurantsArray = response.restaurants;
   });
@@ -103,7 +101,6 @@ function restaurantPrice(restaurantsArray) {
     if (type == "") {
       type = "unknown cuisine";
     }
-    console.log("step3")
     cuisine.text(type);
     // Cuisine Filter Function
     cuisineFilter(type, newDiv);
@@ -192,17 +189,6 @@ $("#search").keydown(function(event) {
   }
 });
 
-// $(".fa-search").on("click", function(event) {
-//   event.preventDefault();
-//   var city = $(".searchbar-input").val();
-//   for (var i = 0; i < city.length; i++) {
-//     if (city[i] == ",") {
-//       city = city.substr(0, i);
-//     }
-//   }
-//   $(".result-city-name").text(city);
-//   collectingCityID(city);
-// });
 
 // toggles menu open and closed
 var menuElement = document.querySelector("menu");
@@ -220,6 +206,7 @@ saveButton.addEventListener("click", function() {
   var olDeliveryCheckbox = $(".online-delivery");
   localStorage.setItem("foodieLevelSlider", foodieLevelSliderInput);
   localStorage.setItem("priceLevelSlider", priceLevelSliderInput);
+
   if (olDeliveryCheckbox.prop("checked")) {
     localStorage.setItem("olDeliveryCheckBox", "0");
   } else {
@@ -237,6 +224,55 @@ saveButton.addEventListener("click", function() {
   restaurantPrice(restaurantsArray);
   
 });
+
+var starSlider = $("#starLevel");
+var starOutput = $("#starLevelOutput");
+var starLiItem = $("<li>").addClass("fas fa-star fa-1x filter-slider-element")
+var starLiItem2 = $("<li>").addClass("fas fa-star fa-1x filter-slider-element")
+var starLiItem3 = $("<li>").addClass("fas fa-star fa-1x filter-slider-element")
+var starLiItem4 = $("<li>").addClass("fas fa-star fa-1x filter-slider-element")
+var starLiItem5 = $("<li>").addClass("fas fa-star fa-1x filter-slider-element")
+var star1 = starLiItem
+var star2 = [starLiItem,starLiItem2]
+var star3 = [starLiItem,starLiItem2,starLiItem3]
+var star4 = [starLiItem,starLiItem2,starLiItem3,starLiItem4]
+var star5 = [starLiItem,starLiItem2,starLiItem3,starLiItem4,starLiItem5]
+starOutput.html(star5);
+
+ function showStar(){
+   var starVal = starSlider.val()
+
+  if (starVal <= 10){
+    starOutput.html(star1)
+  } else if (starVal <= 20){
+    starOutput.html(star2)
+  } else if (starVal <= 30){
+    starOutput.html(star3)
+  } else if (starVal <= 40){
+    starOutput.html(star4)
+  } else if (starVal >= 41){
+    starOutput.html(star5)
+  }
+}
+
+var priceSlider = $("#priveLevelSlider");
+var priceOutput = $("#priceLevelSlideOutput");
+priceOutput.html("$$$$$");
+
+function showPrice(){
+  var priceVal = priceSlider.val()
+ if (priceVal <= 10){
+   priceOutput.html("$")
+ } else if (priceVal <= 20){
+   priceOutput.html("$$")
+ } else if (priceVal <= 30){
+   priceOutput.html("$$$")
+ } else if (priceVal <= 40){
+   priceOutput.html("$$$$")
+ } else if (priceVal >= 41){
+   priceOutput.html("$$$$$")
+ }
+}
 
 closeButton.addEventListener("click", function() {
   menuElement.classList.remove("open");
@@ -357,9 +393,3 @@ function devileryAvailability(deliveryAvailable, specificResult) {
 //   // console.log(autocompleteAttr);
 // })
 
-// loading animation
-// window.addEventListener("load", function() {
-//   const loader = document.querySelector(".loader");
-  // console.log(loader);
-//   loader.className += " hidden"; // class "loader hidden"
-// });
